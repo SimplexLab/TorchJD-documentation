@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Nash-MTL" href="../nash_mtl/"><link rel="prev" title="Mean" href="../mean/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="IMTL-G" href="../imtl_g/"><link rel="prev" title="GradDrop" href="../graddrop/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>MGDA - TorchJD</title>
+        <title>GradVac - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/mgda.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/gradvac.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -242,11 +242,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../imtl_g/">IMTL-G</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../krum/">Krum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">MGDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mgda/">MGDA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nash_mtl/">Nash-MTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pcgrad/">PCGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
@@ -274,7 +274,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/aggregation/mgda.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/aggregation/gradvac.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -292,38 +292,88 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="mgda">
-<h1>MGDA<a class="headerlink" href="#mgda" title="Link to this heading">¶</a></h1>
+          <section id="gradvac">
+<h1>GradVac<a class="headerlink" href="#gradvac" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.MGDA">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">MGDA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mgda.py#L10-L29"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MGDA" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> performing the gradient aggregation
-step of <a class="reference external" href="https://comptes-rendus.academie-sciences.fr/mathematique/articles/10.1016/j.crma.2012.03.014/">Multiple-gradient descent algorithm (MGDA) for multiobjective optimization</a>.
-The implementation is based on Algorithm 2 of <a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2018/file/432aca3a1e345e339f35a30c8f65edce-Paper.pdf">Multi-Task Learning as Multi-Objective
-Optimization</a>.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.GradVac">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradVac</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_gradvac.py#L15-L71"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradVac" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> implementing the aggregation step of
+Gradient Vaccine (GradVac) from <a class="reference external" href="https://openreview.net/forum?id=F1vEjWK-lH_">Gradient Vaccine: Investigating and Improving Multi-task
+Optimization in Massively Multilingual Models (ICLR 2021 Spotlight)</a>.</p>
+<p>For each task <span class="math notranslate nohighlight">\(i\)</span>, the order in which other tasks <span class="math notranslate nohighlight">\(j\)</span> are visited is drawn at
+random. For each pair <span class="math notranslate nohighlight">\((i, j)\)</span>, the cosine similarity <span class="math notranslate nohighlight">\(\phi_{ij}\)</span> between the
+(possibly already modified) gradient of task <span class="math notranslate nohighlight">\(i\)</span> and the original gradient of task
+<span class="math notranslate nohighlight">\(j\)</span> is compared to an EMA target <span class="math notranslate nohighlight">\(\hat{\phi}_{ij}\)</span>. When
+<span class="math notranslate nohighlight">\(\phi_{ij} &lt; \hat{\phi}_{ij}\)</span>, a closed-form correction adds a scaled copy of
+<span class="math notranslate nohighlight">\(g_j\)</span> to <span class="math notranslate nohighlight">\(g_i^{(\mathrm{PC})}\)</span>. The EMA is then updated with
+<span class="math notranslate nohighlight">\(\hat{\phi}_{ij} \leftarrow (1-\beta)\hat{\phi}_{ij} + \beta \phi_{ij}\)</span>. The aggregated
+vector is the sum of the modified rows.</p>
+<p>This aggregator is stateful: it keeps <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> across calls. Use <a class="reference internal" href="#torchjd.aggregation.GradVac.reset" title="torchjd.aggregation.GradVac.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> when
+the number of tasks or dtype changes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>epsilon</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The value of <span class="math notranslate nohighlight">\(\hat{\gamma}\)</span> below which we stop the optimization.</p></li>
-<li><p><strong>max_iters</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – The maximum number of iterations of the optimization loop.</p></li>
+<li><p><strong>beta</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – EMA decay for <span class="math notranslate nohighlight">\(\hat{\phi}\)</span>.</p></li>
+<li><p><strong>eps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Small non-negative constant added to denominators.</p></li>
 </ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For each task <span class="math notranslate nohighlight">\(i\)</span>, the order of other tasks <span class="math notranslate nohighlight">\(j\)</span> is shuffled independently
+using the global PyTorch RNG (<code class="docutils literal notranslate"><span class="pre">torch.randperm</span></code>). Seed it with <code class="docutils literal notranslate"><span class="pre">torch.manual_seed</span></code> if
+you need reproducibility.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.GradVac.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_gradvac.py#L65-L68"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradVac.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears EMA state so the next forward starts from zero targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
 
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.MGDAWeighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">MGDAWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mgda.py#L32-L72"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MGDAWeighting" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="torchjd.aggregation.GradVacWeighting">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradVacWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_gradvac.py#L74-L190"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradVacWeighting" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation._weighting_bases.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> giving the weights of
-<a class="reference internal" href="#torchjd.aggregation.MGDA" title="torchjd.aggregation.MGDA"><code class="xref py py-class docutils literal notranslate"><span class="pre">MGDA</span></code></a>.</p>
+<a class="reference internal" href="#torchjd.aggregation.GradVac" title="torchjd.aggregation.GradVac"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradVac</span></code></a>.</p>
+<p>All required quantities (gradient norms, cosine similarities, and their updates after the
+vaccine correction) are derived purely from the Gramian, without needing the full Jacobian.
+If <span class="math notranslate nohighlight">\(g_i^{(\mathrm{PC})} = \sum_k c_{ik} g_k\)</span>, then:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\|g_i^{(\mathrm{PC})}\|^2 = \mathbf{c}_i G \mathbf{c}_i^\top,\qquad
+g_i^{(\mathrm{PC})} \cdot g_j = \mathbf{c}_i G_{:,j}\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(G\)</span> is the Gramian.  The correction <span class="math notranslate nohighlight">\(g_i^{(\mathrm{PC})} \mathrel{+}= w
+g_j\)</span> then becomes <span class="math notranslate nohighlight">\(c_{ij} \mathrel{+}= w\)</span>, and the updated dot products follow
+immediately.</p>
+<p>This weighting is stateful: it keeps <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> across calls. Use <a class="reference internal" href="#torchjd.aggregation.GradVacWeighting.reset" title="torchjd.aggregation.GradVacWeighting.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> when
+the number of tasks or dtype changes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>epsilon</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The value of <span class="math notranslate nohighlight">\(\hat{\gamma}\)</span> below which we stop the optimization.</p></li>
-<li><p><strong>max_iters</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – The maximum number of iterations of the optimization loop.</p></li>
+<li><p><strong>beta</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – EMA decay for <span class="math notranslate nohighlight">\(\hat{\phi}\)</span>.</p></li>
+<li><p><strong>eps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Small non-negative constant added to denominators.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.GradVacWeighting.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_gradvac.py#L131-L135"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradVacWeighting.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears EMA state so the next forward starts from zero targets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -333,23 +383,23 @@ Optimization</a>.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../nash_mtl/">
+          <a class="next-page" href="../imtl_g/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Nash-MTL</div>
+                <div class="title">IMTL-G</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../mean/">
+          <a class="prev-page" href="../graddrop/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Mean</div>
+                <div class="title">GradDrop</div>
                 
               </div>
             </a>
