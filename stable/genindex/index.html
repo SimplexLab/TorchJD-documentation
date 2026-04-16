@@ -215,6 +215,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../examples/monitoring/">Monitoring aggregations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/lightning_integration/">PyTorch Lightning Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/amp/">Automatic Mixed Precision (AMP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/grouping/">Grouping</a></li>
 </ul>
 </li>
 </ul>
@@ -240,6 +241,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/graddrop/">GradDrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/imtl_g/">IMTL-G</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/krum/">Krum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/mean/">Mean</a></li>
@@ -376,9 +378,13 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="../docs/aggregation/#torchjd.aggregation.GeneralizedWeighting">GeneralizedWeighting (class in torchjd.aggregation)</a>
 </li>
+        <li><a href="../docs/aggregation/graddrop/#torchjd.aggregation.GradDrop">GradDrop (class in torchjd.aggregation)</a>
+</li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="../docs/aggregation/graddrop/#torchjd.aggregation.GradDrop">GradDrop (class in torchjd.aggregation)</a>
+        <li><a href="../docs/aggregation/gradvac/#torchjd.aggregation.GradVac">GradVac (class in torchjd.aggregation)</a>
+</li>
+        <li><a href="../docs/aggregation/gradvac/#torchjd.aggregation.GradVacWeighting">GradVacWeighting (class in torchjd.aggregation)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -487,12 +493,18 @@
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="../docs/aggregation/random/#torchjd.aggregation.Random">Random (class in torchjd.aggregation)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="../docs/aggregation/random/#torchjd.aggregation.RandomWeighting">RandomWeighting (class in torchjd.aggregation)</a>
 </li>
-        <li><a href="../docs/aggregation/nash_mtl/#torchjd.aggregation.NashMTL.reset">reset() (torchjd.aggregation.NashMTL method)</a>
+        <li><a href="../docs/aggregation/gradvac/#torchjd.aggregation.GradVac.reset">reset() (torchjd.aggregation.GradVac method)</a>
+
+        <ul>
+          <li><a href="../docs/aggregation/gradvac/#torchjd.aggregation.GradVacWeighting.reset">(torchjd.aggregation.GradVacWeighting method)</a>
 </li>
+          <li><a href="../docs/aggregation/nash_mtl/#torchjd.aggregation.NashMTL.reset">(torchjd.aggregation.NashMTL method)</a>
+</li>
+          <li><a href="../docs/aggregation/#torchjd.aggregation.Stateful.reset">(torchjd.aggregation.Stateful method)</a>
+</li>
+        </ul></li>
     </ul></td>
   </tr></table>
 </section>
@@ -501,10 +513,12 @@
   <h2>S</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="../docs/aggregation/sum/#torchjd.aggregation.Sum">Sum (class in torchjd.aggregation)</a>
+        <li><a href="../docs/aggregation/#torchjd.aggregation.Stateful">Stateful (class in torchjd.aggregation)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="../docs/aggregation/sum/#torchjd.aggregation.Sum">Sum (class in torchjd.aggregation)</a>
+</li>
         <li><a href="../docs/aggregation/sum/#torchjd.aggregation.SumWeighting">SumWeighting (class in torchjd.aggregation)</a>
 </li>
     </ul></td>
@@ -600,7 +614,7 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=9341aaf2"></script>
+</div><script src="../_static/documentation_options.js?v=5774e270"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

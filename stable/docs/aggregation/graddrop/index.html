@@ -4,7 +4,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="IMTL-G" href="../imtl_g/"><link rel="prev" title="Flattening" href="../flattening/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="GradVac" href="../gradvac/"><link rel="prev" title="Flattening" href="../flattening/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
@@ -217,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/monitoring/">Monitoring aggregations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/lightning_integration/">PyTorch Lightning Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/amp/">Automatic Mixed Precision (AMP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/grouping/">Grouping</a></li>
 </ul>
 </li>
 </ul>
@@ -242,6 +243,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">GradDrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../imtl_g/">IMTL-G</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../krum/">Krum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
@@ -295,7 +297,7 @@
 <h1>GradDrop<a class="headerlink" href="#graddrop" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.GradDrop">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">_identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.9.0/src/torchjd/aggregation/_graddrop.py#L16-L78"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">_identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.10.0/src/torchjd/aggregation/_graddrop.py#L16-L78"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> that applies the gradient combination
 steps from GradDrop, as defined in lines 10 to 15 of Algorithm 1 of <a class="reference external" href="https://arxiv.org/pdf/2010.06808.pdf">Just Pick a Sign:
 Optimizing Deep Multitask Models with Gradient Sign Dropout</a>.</p>
@@ -304,7 +306,7 @@ Optimizing Deep Multitask Models with Gradient Sign Dropout</a>.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code></a></span>) – The function to apply to the Gradient Positive Sign Purity. It should be monotically
 increasing. Defaults to identity.</p></li>
-<li><p><strong>leak</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The tensor of leak values, determining how much each row is allowed to leak
+<li><p><strong>leak</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The tensor of leak values, determining how much each row is allowed to leak
 through. Defaults to None, which means no leak.</p></li>
 </ul>
 </dd>
@@ -318,12 +320,12 @@ through. Defaults to None, which means no leak.</p></li>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../imtl_g/">
+          <a class="next-page" href="../gradvac/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">IMTL-G</div>
+                <div class="title">GradVac</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -362,7 +364,7 @@ through. Defaults to None, which means no leak.</p></li>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=9341aaf2"></script>
+</div><script src="../../../_static/documentation_options.js?v=5774e270"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

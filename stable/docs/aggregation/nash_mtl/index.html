@@ -217,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/monitoring/">Monitoring aggregations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/lightning_integration/">PyTorch Lightning Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/amp/">Automatic Mixed Precision (AMP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/grouping/">Grouping</a></li>
 </ul>
 </li>
 </ul>
@@ -242,6 +243,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../imtl_g/">IMTL-G</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../krum/">Krum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
@@ -295,8 +297,9 @@
 <h1>Nash-MTL<a class="headerlink" href="#nash-mtl" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.NashMTL">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">NashMTL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_weights_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optim_niter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.9.0/src/torchjd/aggregation/_nash_mtl.py#L45-L105"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.NashMTL" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> as proposed in Algorithm 1 of
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">NashMTL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_tasks</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_weights_every</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">optim_niter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.10.0/src/torchjd/aggregation/_nash_mtl.py#L24-L85"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.NashMTL" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation._mixins.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> as proposed in Algorithm 1 of
 <a class="reference external" href="https://arxiv.org/pdf/2202.01017.pdf">Multi-Task Learning as a Bargaining Game</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -330,7 +333,7 @@ experiments.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.NashMTL.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.9.0/src/torchjd/aggregation/_nash_mtl.py#L97-L99"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.NashMTL.reset" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.10.0/src/torchjd/aggregation/_nash_mtl.py#L77-L79"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.NashMTL.reset" title="Link to this definition">¶</a></dt>
 <dd><p>Resets the internal state of the algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -392,7 +395,7 @@ experiments.</p>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=9341aaf2"></script>
+</div><script src="../../../_static/documentation_options.js?v=5774e270"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

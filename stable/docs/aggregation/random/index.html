@@ -217,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/monitoring/">Monitoring aggregations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/lightning_integration/">PyTorch Lightning Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../examples/amp/">Automatic Mixed Precision (AMP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../examples/grouping/">Grouping</a></li>
 </ul>
 </li>
 </ul>
@@ -242,6 +243,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../imtl_g/">IMTL-G</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../krum/">Krum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
@@ -295,7 +297,7 @@
 <h1>Random<a class="headerlink" href="#random" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.Random">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">Random</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.9.0/src/torchjd/aggregation/_random.py#L11-L20"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Random" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">Random</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.10.0/src/torchjd/aggregation/_random.py#L11-L20"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Random" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> that computes a random combination of
 the rows of the provided matrices, as defined in algorithm 2 of <a class="reference external" href="https://arxiv.org/pdf/2111.10603.pdf">Reasonable Effectiveness of
 Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
@@ -303,7 +305,7 @@ Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.RandomWeighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">RandomWeighting</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.9.0/src/torchjd/aggregation/_random.py#L23-L32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.RandomWeighting" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">RandomWeighting</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.10.0/src/torchjd/aggregation/_random.py#L23-L32"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.RandomWeighting" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation._weighting_bases.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> that generates positive random weights
 at each call.</p>
 </dd></dl>
@@ -359,7 +361,7 @@ at each call.</p>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=9341aaf2"></script>
+</div><script src="../../../_static/documentation_options.js?v=5774e270"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
