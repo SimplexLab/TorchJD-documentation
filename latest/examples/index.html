@@ -217,6 +217,7 @@
 <li class="toctree-l2"><a class="reference internal" href="monitoring/">Monitoring aggregations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="lightning_integration/">PyTorch Lightning Integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="amp/">Automatic Mixed Precision (AMP)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grouping/">Grouping</a></li>
 </ul>
 </li>
 </ul>
@@ -319,6 +320,9 @@ aggregator, to check if Jacobian descent is prescribed for your use-case.</p></l
 <li><p><a class="reference internal" href="lightning_integration/"><span class="doc">PyTorch Lightning Integration</span></a> showcases how to combine
 TorchJD with PyTorch Lightning, by providing an example implementation of a multi-task
 <code class="docutils literal notranslate"><span class="pre">LightningModule</span></code> optimized by Jacobian descent.</p></li>
+<li><p><a class="reference internal" href="grouping/"><span class="doc">Grouping</span></a> shows how to apply an aggregator independently per parameter group
+(e.g. per layer), so that conflict resolution happens at a finer granularity than the full
+parameter vector.</p></li>
 <li><p><a class="reference internal" href="amp/"><span class="doc">Automatic Mixed Precision</span></a> shows how to combine mixed precision training with TorchJD.</p></li>
 </ul>
 <div class="toctree-wrapper compound">
