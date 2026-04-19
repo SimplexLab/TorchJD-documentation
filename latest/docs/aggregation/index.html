@@ -356,26 +356,69 @@ weights.</p>
 <h2>Abstract base classes<a class="headerlink" href="#abstract-base-classes" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.Aggregator">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">Aggregator</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_aggregator_bases.py#L10-L40"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Aggregator" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">Aggregator</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_aggregator_bases.py#L10-L44"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Aggregator" title="Link to this definition">¶</a></dt>
 <dd><p>Abstract base class for all aggregators. It has the role of aggregating matrices of dimension
 <span class="math notranslate nohighlight">\(m \times n\)</span> into row vectors of dimension <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.Aggregator.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_aggregator_bases.py#L31-L38"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Aggregator.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The Jacobian to aggregate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.Weighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">Weighting</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L16-L40"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Weighting" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">Weighting</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L16-L44"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Weighting" title="Link to this definition">¶</a></dt>
 <dd><p>Abstract base class for all weighting methods. It has the role of extracting a vector of weights
 of dimension <span class="math notranslate nohighlight">\(m\)</span> from some statistic of a matrix of dimension <span class="math notranslate nohighlight">\(m \times n\)</span>,
 generally its Gramian, of dimension <span class="math notranslate nohighlight">\(m \times m\)</span>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.Weighting.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L30-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.Weighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the vector of weights from the input stat and applies all registered hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stat</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The stat from which the weights must be extracted.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.GeneralizedWeighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GeneralizedWeighting</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L58-L80"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GeneralizedWeighting" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GeneralizedWeighting</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L62-L86"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GeneralizedWeighting" title="Link to this definition">¶</a></dt>
 <dd><p>Abstract base class for all weightings that operate on generalized Gramians. It has the role of
 extracting a tensor of weights of dimension <span class="math notranslate nohighlight">\(m_1 \times \dots \times m_k\)</span> from a
 generalized Gramian of dimension
 <span class="math notranslate nohighlight">\(m_1 \times \dots \times m_k \times m_k \times \dots \times m_1\)</span>.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.GeneralizedWeighting.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generalized_gramian</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L77-L86"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GeneralizedWeighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the tensor of weights from the input generalized Gramian and applies all registered
+hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>generalized_gramian</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The tensor from which the weights must be extracted.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -457,9 +500,18 @@ generalized Gramian of dimension
             <ul>
 <li><a class="reference internal" href="#">aggregation</a><ul>
 <li><a class="reference internal" href="#abstract-base-classes">Abstract base classes</a><ul>
-<li><a class="reference internal" href="#torchjd.aggregation.Aggregator"><code class="docutils literal notranslate"><span class="pre">Aggregator</span></code></a></li>
-<li><a class="reference internal" href="#torchjd.aggregation.Weighting"><code class="docutils literal notranslate"><span class="pre">Weighting</span></code></a></li>
-<li><a class="reference internal" href="#torchjd.aggregation.GeneralizedWeighting"><code class="docutils literal notranslate"><span class="pre">GeneralizedWeighting</span></code></a></li>
+<li><a class="reference internal" href="#torchjd.aggregation.Aggregator"><code class="docutils literal notranslate"><span class="pre">Aggregator</span></code></a><ul>
+<li><a class="reference internal" href="#torchjd.aggregation.Aggregator.__call__"><code class="docutils literal notranslate"><span class="pre">Aggregator.__call__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#torchjd.aggregation.Weighting"><code class="docutils literal notranslate"><span class="pre">Weighting</span></code></a><ul>
+<li><a class="reference internal" href="#torchjd.aggregation.Weighting.__call__"><code class="docutils literal notranslate"><span class="pre">Weighting.__call__()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#torchjd.aggregation.GeneralizedWeighting"><code class="docutils literal notranslate"><span class="pre">GeneralizedWeighting</span></code></a><ul>
+<li><a class="reference internal" href="#torchjd.aggregation.GeneralizedWeighting.__call__"><code class="docutils literal notranslate"><span class="pre">GeneralizedWeighting.__call__()</span></code></a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#torchjd.aggregation.Stateful"><code class="docutils literal notranslate"><span class="pre">Stateful</span></code></a><ul>
 <li><a class="reference internal" href="#torchjd.aggregation.Stateful.reset"><code class="docutils literal notranslate"><span class="pre">Stateful.reset()</span></code></a></li>
 </ul>
