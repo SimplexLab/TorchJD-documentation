@@ -255,6 +255,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/matrix/">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/psd_matrix/">PSDMatrix</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -362,8 +367,8 @@ strategy, please refer to the <a class="reference internal" href="../../../examp
 <dt class="sig sig-object py" id="torchjd.aggregation.GradVacWeighting">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradVacWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_gradvac.py#L16-L128"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradVacWeighting" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation._mixins.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
-<a class="reference internal" href="../#torchjd.aggregation.GramianWeighting" title="torchjd.aggregation.GramianWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">GramianWeighting</span></code></a> giving the weights of
-<a class="reference internal" href="#torchjd.aggregation.GradVac" title="torchjd.aggregation.GradVac"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradVac</span></code></a>.</p>
+<a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/psd_matrix/#torchjd.linalg.PSDMatrix" title="torchjd.linalg.PSDMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDMatrix</span></code></a>]
+giving the weights of <a class="reference internal" href="#torchjd.aggregation.GradVac" title="torchjd.aggregation.GradVac"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradVac</span></code></a>.</p>
 <p>All required quantities (gradient norms, cosine similarities, and their updates after the
 vaccine correction) are derived purely from the Gramian, without needing the full Jacobian.
 If <span class="math notranslate nohighlight">\(g_i^{(\mathrm{PC})} = \sum_k c_{ik} g_k\)</span>, then:</p>
@@ -398,11 +403,11 @@ the number of tasks or dtype changes.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.GradVacWeighting.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gramian</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L108-L114"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradVacWeighting.__call__" title="Link to this definition">¶</a></dt>
-<dd><p>Computes the vector of weights from the input gramian and applies all registered hooks.</p>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gramian</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L72-L78"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradVacWeighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the vector of weights from the input Gramian and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>gramian</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The gramian from which the weights must be extracted.</p>
+<dd class="field-odd"><p><strong>gramian</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The Gramian from which the weights must be extracted.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>

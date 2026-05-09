@@ -255,6 +255,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/matrix/">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/psd_matrix/">PSDMatrix</a></li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -319,11 +324,11 @@ matrices.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.SumWeighting">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">SumWeighting</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_sum.py#L8-L18"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.SumWeighting" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.MatrixWeighting" title="torchjd.aggregation.MatrixWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">MatrixWeighting</span></code></a> that gives the weights
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/matrix/#torchjd.linalg.Matrix" title="torchjd.linalg.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a>] that gives the weights
 <span class="math notranslate nohighlight">\(\begin{bmatrix} 1 &amp; \dots &amp; 1 \end{bmatrix}^T \in \mathbb{R}^m\)</span>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.SumWeighting.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L98-L104"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.SumWeighting.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L62-L68"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.SumWeighting.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the vector of weights from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
