@@ -345,7 +345,7 @@ negatively affected by the update.</p>
 </div>
 <p>The first function will populate the <code class="docutils literal notranslate"><span class="pre">.jac</span></code> field of each model parameter with the corresponding
 Jacobian, and the second one will aggregate these Jacobians and store the result in the <code class="docutils literal notranslate"><span class="pre">.grad</span></code>
-field of the parameters. It also deletes the <code class="docutils literal notranslate"><span class="pre">.jac</span></code> fields save some memory.</p>
+field of the parameters. It also deletes the <code class="docutils literal notranslate"><span class="pre">.jac</span></code> fields to save some memory.</p>
 <p>Update each parameter based on its <code class="docutils literal notranslate"><span class="pre">.grad</span></code> field, using the <code class="docutils literal notranslate"><span class="pre">optimizer</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
 </pre></div>

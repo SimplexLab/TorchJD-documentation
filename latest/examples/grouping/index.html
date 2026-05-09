@@ -300,18 +300,18 @@
 the parameters:</p>
 <ol class="arabic simple">
 <li><p><strong>Together</strong> (baseline): one group covering all parameters. Corresponds to the <cite>whole_model</cite>
-stategy in the paper.</p></li>
+strategy in the paper.</p></li>
 <li><p><strong>Per network</strong>: one group per top-level sub-network (e.g. encoder and decoder separately).
-Corresponds to the <cite>enc_dec</cite> stategy in the paper.</p></li>
-<li><p><strong>Per layer</strong>: one group per leaf module of the network. Corresponds to the <cite>all_layer</cite> stategy
+Corresponds to the <cite>enc_dec</cite> strategy in the paper.</p></li>
+<li><p><strong>Per layer</strong>: one group per leaf module of the network. Corresponds to the <cite>all_layer</cite> strategy
 in the paper.</p></li>
 <li><p><strong>Per tensor</strong>: one group per individual parameter tensor. Corresponds to the <cite>all_matrix</cite>
-stategy in the paper.</p></li>
+strategy in the paper.</p></li>
 </ol>
 <p>In TorchJD, grouping is achieved by calling <a class="reference internal" href="../../docs/autojac/jac_to_grad/#torchjd.autojac.jac_to_grad" title="torchjd.autojac.jac_to_grad"><code class="xref py py-func docutils literal notranslate"><span class="pre">jac_to_grad()</span></code></a> once per group
 after <a class="reference internal" href="../../docs/autojac/backward/#torchjd.autojac.backward" title="torchjd.autojac.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> or <a class="reference internal" href="../../docs/autojac/mtl_backward/#torchjd.autojac.mtl_backward" title="torchjd.autojac.mtl_backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">mtl_backward()</span></code></a>, with a dedicated
 aggregator instance per group. For <a class="reference internal" href="../../docs/aggregation/#torchjd.aggregation.Stateful" title="torchjd.aggregation.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a> aggregators, each instance
-should independently maintains its own state (e.g. the EMA <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> state in
+should independently maintain its own state (e.g. the EMA <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> state in
 <a class="reference internal" href="../../docs/aggregation/gradvac/#torchjd.aggregation.GradVac" title="torchjd.aggregation.GradVac"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradVac</span></code></a>, matching the per-block targets from the original paper).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
