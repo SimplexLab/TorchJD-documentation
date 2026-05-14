@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Aligned-MTL" href="../aligned_mtl/"><link rel="prev" title="aggregation" href="../">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="prev" title="PSDMatrix" href="../psd_matrix/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>UPGrad - TorchJD</title>
+        <title>Dual Cone Projectors - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/upgrad.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/linalg/dual_cone.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -234,31 +234,31 @@
 <li class="toctree-l2"><a class="reference internal" href="../../autojac/jac_to_grad/">jac_to_grad</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../">aggregation</a><input aria-label="Toggle navigation of aggregation" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">UPGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../aligned_mtl/">Aligned-MTL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cagrad/">CAGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../config/">ConFIG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../imtl_g/">IMTL-G</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../krum/">Krum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mgda/">MGDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../nash_mtl/">Nash-MTL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pcgrad/">PCGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../aggregation/">aggregation</a><input aria-label="Toggle navigation of aggregation" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/upgrad/">UPGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/aligned_mtl/">Aligned-MTL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/cagrad/">CAGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/config/">ConFIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/dualproj/">DualProj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/flattening/">Flattening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/graddrop/">GradDrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/gradvac/">GradVac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/imtl_g/">IMTL-G</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/krum/">Krum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/mgda/">MGDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/nash_mtl/">Nash-MTL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/pcgrad/">PCGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/sum/">Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../linalg/matrix/">Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../linalg/psd_matrix/">PSDMatrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../linalg/dual_cone/">Dual Cone Projectors</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../">linalg</a><input aria-label="Toggle navigation of linalg" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../matrix/">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../psd_matrix/">PSDMatrix</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Dual Cone Projectors</a></li>
 </ul>
 </li>
 </ul>
@@ -281,7 +281,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/aggregation/upgrad.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/linalg/dual_cone.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -299,34 +299,44 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="upgrad">
-<h1>UPGrad<a class="headerlink" href="#upgrad" title="Link to this heading">¶</a></h1>
+          <section id="dual-cone-projectors">
+<h1>Dual Cone Projectors<a class="headerlink" href="#dual-cone-projectors" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.UPGrad">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">UPGrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pref_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_upgrad.py#L57-L103"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.UPGrad" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.GramianWeightedAggregator" title="torchjd.aggregation.GramianWeightedAggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">GramianWeightedAggregator</span></code></a> that projects each row of the input
-matrix onto the dual cone of all rows of this matrix, and that combines the result, as proposed
-in <a class="reference external" href="https://arxiv.org/pdf/2406.16232">Jacobian Descent For Multi-Objective Optimization</a>.</p>
+<dt class="sig sig-object py" id="torchjd.linalg.DualConeProjector">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.linalg.</span></span><span class="sig-name descname"><span class="pre">DualConeProjector</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/_linalg/_dual_cone.py#L12-L43"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.DualConeProjector" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract class whose instances are responsible for projecting vectors onto the dual cone of the
+rows of a matrix, or rather the dual form of this problem.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.linalg.DualConeProjector.__call__">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/_linalg/_dual_cone.py#L18-L43"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.DualConeProjector.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes for each vector <span class="math notranslate nohighlight">\(u\)</span> in the provided tensor <code class="docutils literal notranslate"><span class="pre">U</span></code>
+the weights <span class="math notranslate nohighlight">\(w\)</span> of the projection of <span class="math notranslate nohighlight">\(J^\top u\)</span> onto the dual cone of
+the rows of <span class="math notranslate nohighlight">\(J\)</span>, provided <span class="math notranslate nohighlight">\(G = J J^\top\)</span> and <span class="math notranslate nohighlight">\(u\)</span>. In other words, this
+computes the <span class="math notranslate nohighlight">\(w\)</span> that satisfies <span class="math notranslate nohighlight">\(\pi_J(J^\top u) = J^\top w\)</span>, with
+<span class="math notranslate nohighlight">\(\pi_J\)</span> defined in Equation 3 of [1].</p>
+<p>By Proposition 1 of [1], this is equivalent to solving for <span class="math notranslate nohighlight">\(v\)</span> the following
+quadratic program:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}\min_{v} \quad &amp; v^\top G v \\
+\text{subject to} \quad &amp; u \preceq v\end{split}\]</div>
+</div>
+<p>Reference:
+[1] <a class="reference external" href="https://arxiv.org/pdf/2406.16232">Jacobian Descent For Multi-Objective Optimization</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pref_vector</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The preference vector used to combine the projected rows.  If not provided,
-defaults to <span class="math notranslate nohighlight">\(\begin{bmatrix} \frac{1}{m} &amp; \dots &amp; \frac{1}{m} \end{bmatrix}^T \in
-\mathbb{R}^m\)</span>.</p></li>
-<li><p><strong>projector</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="../../linalg/dual_cone/#torchjd.linalg.DualConeProjector" title="torchjd._linalg._dual_cone.DualConeProjector"><code class="xref py py-class docutils literal notranslate"><span class="pre">DualConeProjector</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The <a class="reference internal" href="../../linalg/dual_cone/#torchjd.linalg.DualConeProjector" title="torchjd.linalg.DualConeProjector"><code class="xref py py-class docutils literal notranslate"><span class="pre">DualConeProjector</span></code></a> used to compute the projection.</p></li>
+<li><p><strong>U</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The tensor of weights corresponding to the vectors to project, of shape
+<code class="docutils literal notranslate"><span class="pre">[...,</span> <span class="pre">m]</span></code>.</p></li>
+<li><p><strong>G</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="../psd_matrix/#torchjd.linalg.PSDMatrix" title="torchjd._linalg._matrix.PSDMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDMatrix</span></code></a></span>) – The Gramian matrix of shape <code class="docutils literal notranslate"><span class="pre">[m,</span> <span class="pre">m]</span></code>. It must be symmetric and positive
+semi-definite.</p></li>
 </ul>
 </dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="torchjd.aggregation.UPGrad.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mixins.py#L54-L56"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.UPGrad.__call__" title="Link to this definition">¶</a></dt>
-<dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>matrix</strong> – The Jacobian to aggregate.</p>
-</dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A tensor of projection weights with the same shape as <code class="docutils literal notranslate"><span class="pre">U</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -334,33 +344,21 @@ defaults to <span class="math notranslate nohighlight">\(\begin{bmatrix} \frac{1
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.UPGradWeighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">UPGradWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pref_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">projector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_upgrad.py#L15-L54"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.UPGradWeighting" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/psd_matrix/#torchjd.linalg.PSDMatrix" title="torchjd.linalg.PSDMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDMatrix</span></code></a>]
-giving the weights of <a class="reference internal" href="#torchjd.aggregation.UPGrad" title="torchjd.aggregation.UPGrad"><code class="xref py py-class docutils literal notranslate"><span class="pre">UPGrad</span></code></a>.</p>
+<dt class="sig sig-object py" id="torchjd.linalg.QuadprogProjector">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.linalg.</span></span><span class="sig-name descname"><span class="pre">QuadprogProjector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/_linalg/_dual_cone.py#L52-L115"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.QuadprogProjector" title="Link to this definition">¶</a></dt>
+<dd><p>Solves the quadratic program defined in <a class="reference internal" href="#torchjd.linalg.DualConeProjector.__call__" title="torchjd.linalg.DualConeProjector.__call__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DualConeProjector.__call__()</span></code></a> using the
+<a class="reference external" href="https://github.com/quadprog/quadprog">quadprog</a> QP solver.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pref_vector</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The preference vector to use. If not provided, defaults to
-<span class="math notranslate nohighlight">\(\begin{bmatrix} \frac{1}{m} &amp; \dots &amp; \frac{1}{m} \end{bmatrix}^T \in \mathbb{R}^m\)</span>.</p></li>
-<li><p><strong>projector</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="../../linalg/dual_cone/#torchjd.linalg.DualConeProjector" title="torchjd._linalg._dual_cone.DualConeProjector"><code class="xref py py-class docutils literal notranslate"><span class="pre">DualConeProjector</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The <a class="reference internal" href="../../linalg/dual_cone/#torchjd.linalg.DualConeProjector" title="torchjd.linalg.DualConeProjector"><code class="xref py py-class docutils literal notranslate"><span class="pre">DualConeProjector</span></code></a> used to compute the projection.</p></li>
+<li><p><strong>norm_eps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – A small value to avoid division by zero when normalizing.</p></li>
+<li><p><strong>reg_eps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – A small value to add to the diagonal of the gramian of the matrix. Due to
+numerical errors when computing the gramian, it might not exactly be positive definite.
+This issue can make the optimization fail. Adding <code class="docutils literal notranslate"><span class="pre">reg_eps</span></code> to the diagonal of the gramian
+ensures that it is positive definite.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="torchjd.aggregation.UPGradWeighting.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mixins.py#L54-L56"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.UPGradWeighting.__call__" title="Link to this definition">¶</a></dt>
-<dd><p>Computes the vector of weights from the input Gramian and applies all registered hooks.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>gramian</strong> – The Gramian from which the weights must be extracted.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span></p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -370,23 +368,15 @@ giving the weights of <a class="reference internal" href="#torchjd.aggregation.U
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../aligned_mtl/">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Aligned-MTL</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../">
+          
+          <a class="prev-page" href="../psd_matrix/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">aggregation</div>
+                <div class="title">PSDMatrix</div>
                 
               </div>
             </a>
