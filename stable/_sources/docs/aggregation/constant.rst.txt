@@ -4,11 +4,7 @@ Constant
 ========
 
 .. autoclass:: torchjd.aggregation.Constant
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.ConstantWeighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__

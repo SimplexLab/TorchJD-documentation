@@ -240,6 +240,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../cagrad/">CAGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../config/">ConFIG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">GradDrop</a></li>
@@ -253,6 +254,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/matrix/">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/psd_matrix/">PSDMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/dual_cone/">Dual Cone Projectors</a></li>
 </ul>
 </li>
 </ul>
@@ -297,20 +304,34 @@
 <h1>GradDrop<a class="headerlink" href="#graddrop" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.GradDrop">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">_identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.10.0/src/torchjd/aggregation/_graddrop.py#L16-L78"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> that applies the gradient combination
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">_identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.11.0/src/torchjd/aggregation/_graddrop.py#L17-L83"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> that applies the gradient combination
 steps from GradDrop, as defined in lines 10 to 15 of Algorithm 1 of <a class="reference external" href="https://arxiv.org/pdf/2010.06808.pdf">Just Pick a Sign:
 Optimizing Deep Multitask Models with Gradient Sign Dropout</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code></a></span>) – The function to apply to the Gradient Positive Sign Purity. It should be monotically
+<li><p><strong>f</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Callable</span></code></a></span>) – The function to apply to the Gradient Positive Sign Purity. It should be monotonically
 increasing. Defaults to identity.</p></li>
-<li><p><strong>leak</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The tensor of leak values, determining how much each row is allowed to leak
+<li><p><strong>leak</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The tensor of leak values, determining how much each row is allowed to leak
 through. Defaults to None, which means no leak.</p></li>
 </ul>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.GradDrop.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.11.0/src/torchjd/aggregation/_mixins.py#L54-L56"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>matrix</strong> – The Jacobian to aggregate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -344,7 +365,7 @@ through. Defaults to None, which means no leak.</p></li>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; Valerian Rey, Pierre Quinton
+                Copyright &#169; SimplexLab, Valerian Rey, Pierre Quinton
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -364,7 +385,7 @@ through. Defaults to None, which means no leak.</p></li>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=5774e270"></script>
+</div><script src="../../../_static/documentation_options.js?v=c83676ea"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

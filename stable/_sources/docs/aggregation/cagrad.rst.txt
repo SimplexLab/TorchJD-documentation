@@ -4,11 +4,7 @@ CAGrad
 ======
 
 .. autoclass:: torchjd.aggregation.CAGrad
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.CAGradWeighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__

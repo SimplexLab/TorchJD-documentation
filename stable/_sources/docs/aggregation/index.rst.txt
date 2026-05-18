@@ -8,23 +8,22 @@ Abstract base classes
 ---------------------
 
 .. autoclass:: torchjd.aggregation.Aggregator
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
+
+.. autoclass:: torchjd.aggregation.WeightedAggregator
+    :members: __call__
+
+.. autoclass:: torchjd.aggregation.GramianWeightedAggregator
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.Weighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.GeneralizedWeighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.Stateful
-    :members:
-    :undoc-members:
+    :members: reset
 
 
 .. toctree::
@@ -36,6 +35,7 @@ Abstract base classes
     cagrad.rst
     config.rst
     constant.rst
+    cr_mogm.rst
     dualproj.rst
     flattening.rst
     graddrop.rst

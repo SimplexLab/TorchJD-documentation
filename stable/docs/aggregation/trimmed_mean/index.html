@@ -4,7 +4,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="prev" title="Sum" href="../sum/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="linalg" href="../../linalg/"><link rel="prev" title="Sum" href="../sum/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
@@ -240,6 +240,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../cagrad/">CAGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../config/">ConFIG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
@@ -253,6 +254,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Trimmed Mean</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/matrix/">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/psd_matrix/">PSDMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../linalg/dual_cone/">Dual Cone Projectors</a></li>
 </ul>
 </li>
 </ul>
@@ -297,8 +304,8 @@
 <h1>Trimmed Mean<a class="headerlink" href="#trimmed-mean" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.TrimmedMean">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">TrimmedMean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trim_number</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.10.0/src/torchjd/aggregation/_trimmed_mean.py#L7-L51"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.TrimmedMean" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation._aggregator_bases.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> for adversarial federated learning,
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">TrimmedMean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trim_number</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.11.0/src/torchjd/aggregation/_trimmed_mean.py#L7-L57"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.TrimmedMean" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> for adversarial federated learning,
 that trims the most extreme values of the input matrix, before averaging its rows, as defined in
 <a class="reference external" href="https://proceedings.mlr.press/v80/yin18a/yin18a.pdf">Byzantine-Robust Distributed Learning: Towards Optimal Statistical Rates</a>.</p>
 <dl class="field-list simple">
@@ -307,6 +314,20 @@ that trims the most extreme values of the input matrix, before averaging its row
 input matrix (note that <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">trim_number</span></code> values are removed from each column).</p>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.TrimmedMean.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.11.0/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.TrimmedMean.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The Jacobian to aggregate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -316,7 +337,15 @@ input matrix (note that <code class="docutils literal notranslate"><span class="
       <footer>
         
         <div class="related-pages">
-          
+          <a class="next-page" href="../../linalg/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">linalg</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
           <a class="prev-page" href="../sum/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
@@ -332,7 +361,7 @@ input matrix (note that <code class="docutils literal notranslate"><span class="
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; Valerian Rey, Pierre Quinton
+                Copyright &#169; SimplexLab, Valerian Rey, Pierre Quinton
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -352,7 +381,7 @@ input matrix (note that <code class="docutils literal notranslate"><span class="
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=5774e270"></script>
+</div><script src="../../../_static/documentation_options.js?v=c83676ea"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

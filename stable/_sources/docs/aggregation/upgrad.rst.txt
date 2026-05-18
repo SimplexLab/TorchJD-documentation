@@ -4,11 +4,7 @@ UPGrad
 ======
 
 .. autoclass:: torchjd.aggregation.UPGrad
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.UPGradWeighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__

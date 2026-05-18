@@ -4,11 +4,7 @@ IMTL-G
 ======
 
 .. autoclass:: torchjd.aggregation.IMTLG
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.IMTLGWeighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__

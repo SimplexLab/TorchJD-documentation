@@ -4,11 +4,7 @@ GradVac
 =======
 
 .. autoclass:: torchjd.aggregation.GradVac
-    :members:
-    :undoc-members:
-    :exclude-members: forward, eps, beta
+    :members: __call__, reset
 
 .. autoclass:: torchjd.aggregation.GradVacWeighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward, eps, beta
+    :members: __call__, reset

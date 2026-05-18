@@ -240,6 +240,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/cagrad/">CAGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/config/">ConFIG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/graddrop/">GradDrop</a></li>
@@ -253,6 +254,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/sum/">Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/trimmed_mean/">Trimmed Mean</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../docs/linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../docs/linalg/matrix/">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docs/linalg/psd_matrix/">PSDMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docs/linalg/dual_cone/">Dual Cone Projectors</a></li>
 </ul>
 </li>
 </ul>
@@ -300,18 +307,18 @@
 the parameters:</p>
 <ol class="arabic simple">
 <li><p><strong>Together</strong> (baseline): one group covering all parameters. Corresponds to the <cite>whole_model</cite>
-stategy in the paper.</p></li>
+strategy in the paper.</p></li>
 <li><p><strong>Per network</strong>: one group per top-level sub-network (e.g. encoder and decoder separately).
-Corresponds to the <cite>enc_dec</cite> stategy in the paper.</p></li>
-<li><p><strong>Per layer</strong>: one group per leaf module of the network. Corresponds to the <cite>all_layer</cite> stategy
+Corresponds to the <cite>enc_dec</cite> strategy in the paper.</p></li>
+<li><p><strong>Per layer</strong>: one group per leaf module of the network. Corresponds to the <cite>all_layer</cite> strategy
 in the paper.</p></li>
 <li><p><strong>Per tensor</strong>: one group per individual parameter tensor. Corresponds to the <cite>all_matrix</cite>
-stategy in the paper.</p></li>
+strategy in the paper.</p></li>
 </ol>
 <p>In TorchJD, grouping is achieved by calling <a class="reference internal" href="../../docs/autojac/jac_to_grad/#torchjd.autojac.jac_to_grad" title="torchjd.autojac.jac_to_grad"><code class="xref py py-func docutils literal notranslate"><span class="pre">jac_to_grad()</span></code></a> once per group
 after <a class="reference internal" href="../../docs/autojac/backward/#torchjd.autojac.backward" title="torchjd.autojac.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> or <a class="reference internal" href="../../docs/autojac/mtl_backward/#torchjd.autojac.mtl_backward" title="torchjd.autojac.mtl_backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">mtl_backward()</span></code></a>, with a dedicated
 aggregator instance per group. For <a class="reference internal" href="../../docs/aggregation/#torchjd.aggregation.Stateful" title="torchjd.aggregation.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a> aggregators, each instance
-should independently maintains its own state (e.g. the EMA <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> state in
+should independently maintain its own state (e.g. the EMA <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> state in
 <a class="reference internal" href="../../docs/aggregation/gradvac/#torchjd.aggregation.GradVac" title="torchjd.aggregation.GradVac"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradVac</span></code></a>, matching the per-block targets from the original paper).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -487,7 +494,7 @@ layer are treated as separate groups).</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; Valerian Rey, Pierre Quinton
+                Copyright &#169; SimplexLab, Valerian Rey, Pierre Quinton
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -529,7 +536,7 @@ layer are treated as separate groups).</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=5774e270"></script>
+</div><script src="../../_static/documentation_options.js?v=c83676ea"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>

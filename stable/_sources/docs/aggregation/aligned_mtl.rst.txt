@@ -4,11 +4,7 @@ Aligned-MTL
 ===========
 
 .. autoclass:: torchjd.aggregation.AlignedMTL
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
 
 .. autoclass:: torchjd.aggregation.AlignedMTLWeighting
-    :members:
-    :undoc-members:
-    :exclude-members: forward
+    :members: __call__
