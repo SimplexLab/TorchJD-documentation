@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Constant" href="../constant/"><link rel="prev" title="CAGrad" href="../cagrad/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="DualProj" href="../dualproj/"><link rel="prev" title="Constant" href="../constant/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>ConFIG - TorchJD</title>
+        <title>CR-MOGM - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/config.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/cr_mogm.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -238,9 +238,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../upgrad/">UPGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aligned_mtl/">Aligned-MTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cagrad/">CAGrad</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">ConFIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config/">ConFIG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cr_mogm/">CR-MOGM</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
@@ -282,7 +282,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/aggregation/config.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/aggregation/cr_mogm.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -300,39 +300,126 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="config">
-<h1>ConFIG<a class="headerlink" href="#config" title="Link to this heading">¶</a></h1>
+          <section id="cr-mogm">
+<h1>CR-MOGM<a class="headerlink" href="#cr-mogm" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.ConFIG">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">ConFIG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pref_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_config.py#L17-L59"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ConFIG" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> as defined in Equation 2 of <a class="reference external" href="https://arxiv.org/pdf/2408.11104">ConFIG:
-Towards Conflict-free Training of Physics Informed Neural Networks</a>.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.CRMOGMWeighting">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">CRMOGMWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weighting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_cr_mogm.py#L14-L155"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation._mixins.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation._weighting_bases.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> that wraps another
+<a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation._weighting_bases.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> and stabilises the weights it
+produces with an exponential moving average (EMA) across calls. This is the weight-smoothing
+modifier from <a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2022/file/f91bd64a3620aad8e70a27ad9cb3ca57-Paper-Conference.pdf">On the Convergence of Stochastic Multi-Objective Gradient Manipulation and
+Beyond</a>
+(NeurIPS 2022).</p>
+<p>Let <span class="math notranslate nohighlight">\(\hat{\lambda}_k\)</span> be the weights returned by the wrapped weighting at step
+<span class="math notranslate nohighlight">\(k\)</span>. The smoothed weights returned by <code class="docutils literal notranslate"><span class="pre">CRMOGMWeighting</span></code> are:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\lambda_k = \alpha \, \lambda_{k-1} + (1 - \alpha) \, \hat{\lambda}_k\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_0\)</span> is <code class="docutils literal notranslate"><span class="pre">initial_weights</span></code> if provided, otherwise
+<span class="math notranslate nohighlight">\(\lambda_0 = \hat{\lambda}_1\)</span> (so that the first smoothed output equals
+<span class="math notranslate nohighlight">\(\hat{\lambda}_1\)</span> regardless of <span class="math notranslate nohighlight">\(\alpha\)</span>).</p>
+<p>Creating the corresponding <a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> from a wrapped weighting can
+be done by composing it with the appropriate aggregator subclass
+(<a class="reference internal" href="../#torchjd.aggregation.WeightedAggregator" title="torchjd.aggregation.WeightedAggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightedAggregator</span></code></a> or
+<a class="reference internal" href="../#torchjd.aggregation.GramianWeightedAggregator" title="torchjd.aggregation.GramianWeightedAggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">GramianWeightedAggregator</span></code></a>)</p>
+<p>The following example shows how to instantiate a Gramian-based weighted aggregator whose
+Gramian weighting is wrapped by CR-MOGM.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">CRMOGMWeighting</span><span class="p">,</span> <span class="n">GramianWeightedAggregator</span><span class="p">,</span> <span class="n">UPGradWeighting</span>
+
+<span class="n">aggregator</span> <span class="o">=</span> <span class="n">GramianWeightedAggregator</span><span class="p">(</span><span class="n">CRMOGMWeighting</span><span class="p">(</span><span class="n">UPGradWeighting</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>The following example shows how to instantiate a Matrix-based weighted aggregator whose
+weighting is wrapped by CR-MOGM.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">CRMOGMWeighting</span><span class="p">,</span> <span class="n">MeanWeighting</span><span class="p">,</span> <span class="n">WeightedAggregator</span>
+
+<span class="n">aggregator</span> <span class="o">=</span> <span class="n">WeightedAggregator</span><span class="p">(</span><span class="n">CRMOGMWeighting</span><span class="p">(</span><span class="n">MeanWeighting</span><span class="p">()))</span>
+</pre></div>
+</div>
+<p>Note that here, <a class="reference internal" href="../mean/#torchjd.aggregation.MeanWeighting" title="torchjd.aggregation.MeanWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanWeighting</span></code></a> is used just for the sake of the
+example: the exponential moving average of constant weights will always be equal to the weights
+themselves, so wrapping by <code class="docutils literal notranslate"><span class="pre">CRMOGMWeighting</span></code> will have no effect.</p>
+<p>This weighting is stateful: it keeps <span class="math notranslate nohighlight">\(\lambda_{k-1}\)</span> across calls. Use <a class="reference internal" href="#torchjd.aggregation.CRMOGMWeighting.reset" title="torchjd.aggregation.CRMOGMWeighting.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a>
+to restart the smoothing from the initial state. Note that calling <a class="reference internal" href="#torchjd.aggregation.CRMOGMWeighting.reset" title="torchjd.aggregation.CRMOGMWeighting.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> will also
+reset the wrapped weighting if it is <a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pref_vector</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The preference vector used to weight the rows. If not provided, defaults to
-equal weights of 1.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>weighting</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation._weighting_bases.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.TypeVar" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TypeVar</span></code></a>(<code class="docutils literal notranslate"><span class="pre">_T</span></code>, bound= <a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a>, contravariant=True)]</span>) – The wrapped weighting whose output is smoothed.</p></li>
+<li><p><strong>alpha</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – EMA coefficient on the previous weights. <code class="docutils literal notranslate"><span class="pre">alpha=0</span></code> disables smoothing
+(<code class="docutils literal notranslate"><span class="pre">CRMOGMWeighting</span></code> returns <code class="docutils literal notranslate"><span class="pre">weighting</span></code>’s output verbatim) and <code class="docutils literal notranslate"><span class="pre">alpha=1</span></code> freezes
+the weights at their initial value. The default of <code class="docutils literal notranslate"><span class="pre">0.9</span></code> follows the usual EMA
+convention (analogous to Adam’s <span class="math notranslate nohighlight">\(\beta_1\)</span>).</p></li>
+<li><p><strong>initial_weights</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – Optional tensor to use as <span class="math notranslate nohighlight">\(\lambda_0\)</span>. If <code class="docutils literal notranslate"><span class="pre">None</span></code> (default),
+<span class="math notranslate nohighlight">\(\lambda_0\)</span> is set to <span class="math notranslate nohighlight">\(\hat{\lambda}_1\)</span> on the first forward call, making
+the first smoothed output equal to <span class="math notranslate nohighlight">\(\hat{\lambda}_1\)</span>.</p></li>
+</ul>
 </dd>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This implementation was adapted from the <a class="reference external" href="https://github.com/tum-pbs/ConFIG/tree/main/conflictfree">official implementation</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">alpha</span></code> is a fixed <code class="docutils literal notranslate"><span class="pre">float</span></code> for simplicity. Corollary 1 of the paper recommends a
+schedule where <span class="math notranslate nohighlight">\(\alpha_k\)</span> starts near 0 and increases toward 1 as the learning
+rate decays. Update <code class="docutils literal notranslate"><span class="pre">alpha</span></code> between forward calls via the setter.</p>
+<p>The following example shows how to update alpha with the suggested scheme from the paper,
+when the aggregator is a Gramian-based weighted aggregator whose Gramian weighting is
+wrapped by CR-MOGM:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CRMOGMWeighting</span><span class="p">,</span>
+    <span class="n">GramianWeightedAggregator</span><span class="p">,</span>
+    <span class="n">UPGradWeighting</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">aggregator</span> <span class="o">=</span> <span class="n">GramianWeightedAggregator</span><span class="p">(</span><span class="n">CRMOGMWeighting</span><span class="p">(</span><span class="n">UPGradWeighting</span><span class="p">()))</span>
+
+<span class="n">initial_lr</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">current_lr</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># e.g. obtained from lr_scheduler.get_lr()[0]</span>
+
+<span class="n">cr_mogm</span> <span class="o">=</span> <span class="n">aggregator</span><span class="o">.</span><span class="n">gramian_weighting</span>
+<span class="n">cr_mogm</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">current_lr</span> <span class="o">/</span> <span class="n">initial_lr</span>
+</pre></div>
+</div>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="torchjd.aggregation.ConFIG.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mixins.py#L54-L56"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ConFIG.__call__" title="Link to this definition">¶</a></dt>
-<dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.CRMOGMWeighting.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_cr_mogm.py#L120-L128"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the EMA state so the next forward restarts from the initial state. Also resets the
+wrapped weighting if it is <a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation._mixins.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.CRMOGMWeighting.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L31-L38"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the vector of weights from the input stat and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>matrix</strong> – The Jacobian to aggregate.</p>
+<dd class="field-odd"><p><strong>stat</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The stat from which the weights must be extracted.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The usage example in the docstring above imports
+<code class="docutils literal notranslate"><span class="pre">WeightedAggregator</span></code> / <code class="docutils literal notranslate"><span class="pre">GramianWeightedAggregator</span></code> from
+<code class="docutils literal notranslate"><span class="pre">torchjd.aggregation._aggregator_bases</span></code>, which is a private module. These two
+aggregator base classes are not currently part of the public <code class="docutils literal notranslate"><span class="pre">torchjd.aggregation</span></code>
+namespace, so this private-module import is the only path that works today. Promoting
+them to the public namespace is a separate decision left to the maintainers.</p>
+</div>
 </section>
 
         </article>
@@ -340,23 +427,23 @@ equal weights of 1.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../constant/">
+          <a class="next-page" href="../dualproj/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Constant</div>
+                <div class="title">DualProj</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../cagrad/">
+          <a class="prev-page" href="../constant/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">CAGrad</div>
+                <div class="title">Constant</div>
                 
               </div>
             </a>
@@ -389,6 +476,7 @@ equal weights of 1.</p>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script data-domain="torchjd.org" defer="defer" src="https://stats.torchjd.org/js/script.js"></script>
     </body>
 </html>
