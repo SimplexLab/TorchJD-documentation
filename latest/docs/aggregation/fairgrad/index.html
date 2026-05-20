@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Constant" href="../constant/"><link rel="prev" title="CAGrad" href="../cagrad/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Flattening" href="../flattening/"><link rel="prev" title="DualProj" href="../dualproj/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>ConFIG - TorchJD</title>
+        <title>FairGrad - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/config.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/fairgrad.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -238,11 +238,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../upgrad/">UPGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aligned_mtl/">Aligned-MTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cagrad/">CAGrad</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">ConFIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config/">ConFIG</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../fairgrad/">FairGrad</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">FairGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
@@ -283,7 +283,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/aggregation/config.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/aggregation/fairgrad.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -301,26 +301,32 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="config">
-<h1>ConFIG<a class="headerlink" href="#config" title="Link to this heading">¶</a></h1>
+          <section id="fairgrad">
+<h1>FairGrad<a class="headerlink" href="#fairgrad" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.ConFIG">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">ConFIG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pref_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_config.py#L17-L59"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ConFIG" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> as defined in Equation 2 of <a class="reference external" href="https://arxiv.org/pdf/2408.11104">ConFIG:
-Towards Conflict-free Training of Physics Informed Neural Networks</a>.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.FairGrad">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">FairGrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_fairgrad.py#L81-L123"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGrad" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.GramianWeightedAggregator" title="torchjd.aggregation.GramianWeightedAggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">GramianWeightedAggregator</span></code></a> using the step decision of Algorithm 1
+of <a class="reference external" href="https://arxiv.org/pdf/2402.15638.pdf">Fair Resource Allocation in Multi-Task Learning</a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pref_vector</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The preference vector used to weight the rows. If not provided, defaults to
-equal weights of 1.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The parameter controlling the type of fairness in the alpha-fairness
+formulation.</p></li>
+<li><p><strong>max_iters</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The maximum number of iterations of the optimization loop. If set to None,
+the default value of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.least_squares</span></code> (<code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">m</span></code>) will be used.</p></li>
+</ul>
 </dd>
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This implementation was adapted from the <a class="reference external" href="https://github.com/tum-pbs/ConFIG/tree/main/conflictfree">official implementation</a>.</p>
+<p>This aggregator requires optional dependencies. When they are not installed, instantiating
+it raises an <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a> with installation instructions.
+To install them, use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;torchjd[fairgrad]&quot;</span></code>.</p>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="torchjd.aggregation.ConFIG.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mixins.py#L27-L29"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ConFIG.__call__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="torchjd.aggregation.FairGrad.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mixins.py#L27-L29"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGrad.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -334,6 +340,45 @@ equal weights of 1.</p>
 
 </dd></dl>
 
+<dl class="py class">
+<dt class="sig sig-object py" id="torchjd.aggregation.FairGradWeighting">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">FairGradWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_fairgrad.py#L24-L78"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGradWeighting" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/psd_matrix/#torchjd.linalg.PSDMatrix" title="torchjd.linalg.PSDMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDMatrix</span></code></a>] giving the
+weights of <a class="reference internal" href="#torchjd.aggregation.FairGrad" title="torchjd.aggregation.FairGrad"><code class="xref py py-class docutils literal notranslate"><span class="pre">FairGrad</span></code></a>, as defined in Equation 4 of <a class="reference external" href="https://arxiv.org/pdf/2402.15638">Fair Resource
+Allocation in Multi-Task Learning</a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>alpha</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The parameter controlling the type of fairness in the alpha-fairness
+formulation.</p></li>
+<li><p><strong>max_iters</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The maximum number of iterations of the optimization loop. If set to None,
+the default value of <code class="docutils literal notranslate"><span class="pre">scipy.optimize.least_squares</span></code> (<code class="docutils literal notranslate"><span class="pre">100</span> <span class="pre">*</span> <span class="pre">m</span></code>) will be used.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This implementation was adapted from the <a class="reference external" href="https://github.com/OptMN-Lab/fairgrad/blob/main/methods/weight_methods.py#L811-L825">official implementation</a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This aggregator requires optional dependencies. When they are not installed, instantiating
+it raises an <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ImportError" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImportError</span></code></a> with installation instructions.
+To install them, use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;torchjd[fairgrad]&quot;</span></code>.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.FairGradWeighting.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_mixins.py#L27-L29"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGradWeighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Call self as a function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.14)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
         </article>
@@ -341,23 +386,23 @@ equal weights of 1.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../constant/">
+          <a class="next-page" href="../flattening/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Constant</div>
+                <div class="title">Flattening</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../cagrad/">
+          <a class="prev-page" href="../dualproj/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">CAGrad</div>
+                <div class="title">DualProj</div>
                 
               </div>
             </a>
