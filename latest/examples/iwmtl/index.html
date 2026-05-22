@@ -243,7 +243,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/dualproj/">DualProj</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/fairgrad/">FairGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/flattening/">Flattening</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/aggregation/imtl_g/">IMTL-G</a></li>
@@ -313,7 +312,7 @@ this Gramian to reweight the gradients and resolve conflict entirely.</p>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">Linear</span><span class="p">,</span> <span class="n">MSELoss</span><span class="p">,</span> <span class="n">ReLU</span><span class="p">,</span> <span class="n">Sequential</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="kn">import</span> <span class="n">SGD</span>
 
-<span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flattening</span><span class="p">,</span> <span class="n">UPGradWeighting</span>
+<span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">UPGradWeighting</span>
 </span><span class="hll"><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.autogram</span><span class="w"> </span><span class="kn">import</span> <span class="n">Engine</span>
 </span>
 <span class="n">shared_module</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">Linear</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">())</span>
@@ -327,7 +326,7 @@ this Gramian to reweight the gradients and resolve conflict entirely.</p>
 
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="hll"><span class="n">mse</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-</span><span class="hll"><span class="n">weighting</span> <span class="o">=</span> <span class="n">Flattening</span><span class="p">(</span><span class="n">UPGradWeighting</span><span class="p">())</span>
+</span><span class="hll"><span class="n">weighting</span> <span class="o">=</span> <span class="n">UPGradWeighting</span><span class="p">()</span>
 </span><span class="hll"><span class="n">engine</span> <span class="o">=</span> <span class="n">Engine</span><span class="p">(</span><span class="n">shared_module</span><span class="p">,</span> <span class="n">batch_dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </span>
 <span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># 8 batches of 16 random input vectors of length 10</span>
@@ -343,25 +342,24 @@ this Gramian to reweight the gradients and resolve conflict entirely.</p>
 </span><span class="hll">    <span class="n">losses</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">mse</span><span class="p">(</span><span class="n">out1</span><span class="p">,</span> <span class="n">target1</span><span class="p">),</span> <span class="n">mse</span><span class="p">(</span><span class="n">out2</span><span class="p">,</span> <span class="n">target2</span><span class="p">)],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># shape: [16, 2]</span>
 </span>
 <span class="hll">    <span class="c1"># Compute the gramian (inner products between pairs of gradients of the losses)</span>
-</span><span class="hll">    <span class="n">gramian</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">compute_gramian</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>  <span class="c1"># shape: [16, 2, 2, 16]</span>
+</span><span class="hll">    <span class="n">gramian</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="n">compute_gramian</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>  <span class="c1"># shape: [32, 32]</span>
 </span>
 <span class="hll">    <span class="c1"># Obtain the weights that lead to no conflict between reweighted gradients</span>
-</span><span class="hll">    <span class="n">weights</span> <span class="o">=</span> <span class="n">weighting</span><span class="p">(</span><span class="n">gramian</span><span class="p">)</span>  <span class="c1"># shape: [16, 2]</span>
+</span><span class="hll">    <span class="n">weights</span> <span class="o">=</span> <span class="n">weighting</span><span class="p">(</span><span class="n">gramian</span><span class="p">)</span>  <span class="c1"># shape: [32]</span>
 </span>
 <span class="hll">    <span class="c1"># Do the standard backward pass, but weighted using the obtained weights</span>
-</span><span class="hll">    <span class="n">losses</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">losses</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">weights</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">losses</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 </span>    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
     <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In this example, the tensor of losses is a matrix rather than a vector. The gramian is thus a
-4D tensor rather than a matrix, and a
-<a class="reference internal" href="../../docs/aggregation/#torchjd.aggregation.GeneralizedWeighting" title="torchjd.aggregation._weighting_bases.GeneralizedWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralizedWeighting</span></code></a>, such as
-<a class="reference internal" href="../../docs/aggregation/flattening/#torchjd.aggregation.Flattening" title="torchjd.aggregation._flattening.Flattening"><code class="xref py py-class docutils literal notranslate"><span class="pre">Flattening</span></code></a>, has to be used to extract a matrix of
-weights from it. More information about <code class="docutils literal notranslate"><span class="pre">GeneralizedWeighting</span></code> can be found in the
-<a class="reference internal" href="../../docs/aggregation/"><span class="doc">aggregation</span></a> page.</p>
+<p>In this example, the tensor of losses is a matrix of shape <code class="docutils literal notranslate"><span class="pre">[16,</span> <span class="pre">2]</span></code> (16 samples, 2 tasks).
+The autogram engine flattens this into a vector of <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">16</span> <span class="pre">×</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">32</span></code> objectives, so the
+Gramian has shape <code class="docutils literal notranslate"><span class="pre">[32,</span> <span class="pre">32]</span></code>. A standard <a class="reference internal" href="../../docs/aggregation/#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> is then used
+to extract a vector of 32 weights, which is reshaped back to <code class="docutils literal notranslate"><span class="pre">[16,</span> <span class="pre">2]</span></code> before being passed to
+<a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.Tensor.backward.html#torch.Tensor.backward" title="(in PyTorch v2.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">backward()</span></code></a>.</p>
 </div>
 </section>
 
