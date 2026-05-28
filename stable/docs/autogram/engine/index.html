@@ -242,7 +242,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/dualproj/">DualProj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/flattening/">Flattening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/fairgrad/">FairGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/imtl_g/">IMTL-G</a></li>
@@ -256,7 +256,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/sum/">Sum</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../linalg/matrix/">Matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linalg/psd_matrix/">PSDMatrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../linalg/dual_cone/">Dual Cone Projectors</a></li>
@@ -304,7 +311,7 @@
 <h1>Engine<a class="headerlink" href="#engine" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.autogram.Engine">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.autogram.</span></span><span class="sig-name descname"><span class="pre">Engine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">modules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_dim</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.11.0/src/torchjd/autogram/_engine.py#L48-L344"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.autogram.Engine" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.autogram.</span></span><span class="sig-name descname"><span class="pre">Engine</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">modules</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_dim</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/autogram/_engine.py#L48-L333"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.autogram.Engine" title="Link to this definition">¶</a></dt>
 <dd><p>Engine to compute the Gramian of the Jacobian of some tensor with respect to the direct
 parameters of all provided modules. It is based on Algorithm 3 of <a class="reference external" href="https://arxiv.org/pdf/2406.16232">Jacobian Descent For
 Multi-Objective Optimization</a> but goes even further:</p>
@@ -430,42 +437,31 @@ another child module to avoid the slow-down.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.autogram.Engine.compute_gramian">
-<span class="sig-name descname"><span class="pre">compute_gramian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.11.0/src/torchjd/autogram/_engine.py#L244-L315"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.autogram.Engine.compute_gramian" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">compute_gramian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/autogram/_engine.py#L244-L304"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.autogram.Engine.compute_gramian" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the Gramian of the Jacobian of <code class="docutils literal notranslate"><span class="pre">output</span></code> with respect to the direct parameters of
 all <code class="docutils literal notranslate"><span class="pre">modules</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>output</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The tensor of arbitrary shape to differentiate. The shape of the returned
-Gramian depends on the shape of this output.</p>
+<dd class="field-odd"><p><strong>output</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – <p>The tensor to differentiate. Its elements are treated as a flat vector of
+<span class="math notranslate nohighlight">\(m\)</span> objectives (where <span class="math notranslate nohighlight">\(m\)</span> is the total number of elements of <code class="docutils literal notranslate"><span class="pre">output</span></code>),
+so the returned Gramian always has shape <span class="math notranslate nohighlight">\([m, m]\)</span>.</p>
+<dl class="simple">
+<dt>A few examples:</dt><dd><ul class="simple">
+<li><p>Scalar <code class="docutils literal notranslate"><span class="pre">output</span></code>: <span class="math notranslate nohighlight">\(1\times 1\)</span> Gramian (this can be used to efficiently
+compute the squared norm of the gradient of <code class="docutils literal notranslate"><span class="pre">output</span></code>).</p></li>
+<li><p>Vector <code class="docutils literal notranslate"><span class="pre">output</span></code> of dimension <span class="math notranslate nohighlight">\(m\)</span>: <span class="math notranslate nohighlight">\(m \times m\)</span> Gramian (this is the
+standard setting of Jacobian descent).</p></li>
+<li><p>Matrix <code class="docutils literal notranslate"><span class="pre">output</span></code> of dimension <span class="math notranslate nohighlight">\(m_1\times m_2\)</span>: <span class="math notranslate nohighlight">\(m_1 m_2 \times m_1 m_2\)</span>
+Gramian (this can be used for <a class="reference internal" href="../../../examples/iwmtl/"><span class="doc">Instance-Wise Multi-Task Learning (IWMTL)</span></a>, as each sample in the batch has one loss per task).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This function doesn’t require <code class="docutils literal notranslate"><span class="pre">output</span></code> to be a vector. For example, if <code class="docutils literal notranslate"><span class="pre">output</span></code> is
-a matrix of shape <span class="math notranslate nohighlight">\([m_1, m_2]\)</span>, its Jacobian <span class="math notranslate nohighlight">\(J\)</span> with respect to the
-parameters will be of shape <span class="math notranslate nohighlight">\([m_1, m_2, n]\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is the number of
-parameters in the model. This is what we call a <cite>generalized Jacobian</cite>. The
-corresponding Gramian <span class="math notranslate nohighlight">\(G = J J^\top\)</span> will be of shape
-<span class="math notranslate nohighlight">\([m_1, m_2, m_2, m_1]\)</span>. This is what we call a <cite>generalized Gramian</cite>. The number
-of dimensions of the returned generalized Gramian will always be twice that of the
-<code class="docutils literal notranslate"><span class="pre">output</span></code>.</p>
-<dl class="simple">
-<dt>A few examples:</dt><dd><ul class="simple">
-<li><p>0D (scalar) <code class="docutils literal notranslate"><span class="pre">output</span></code>: 0D Gramian (this can be used to efficiently compute the
-squared norm of the gradient of <code class="docutils literal notranslate"><span class="pre">output</span></code>).</p></li>
-<li><p>1D (vector) <code class="docutils literal notranslate"><span class="pre">output</span></code>: 2D Gramian (this is the standard setting of Jacobian
-descent).</p></li>
-<li><p>2D (matrix) <code class="docutils literal notranslate"><span class="pre">output</span></code>: 4D Gramian (this can be used for <a class="reference internal" href="../../../examples/iwmtl/"><span class="doc">Instance-Wise
-Multi-Task Learning (IWMTL)</span></a>, as each sample in the batch
-has one loss per task).</p></li>
-<li><p>etc.</p></li>
-</ul>
-</dd>
-</dl>
-</div>
 </dd></dl>
 
 </dd></dl>
@@ -521,7 +517,7 @@ has one loss per task).</p></li>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=c83676ea"></script>
+</div><script src="../../../_static/documentation_options.js?v=b280cd05"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

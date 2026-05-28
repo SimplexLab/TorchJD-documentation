@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex/"><link rel="search" title="Search" href="../../search/"><link rel="next" title="Matrix" href="matrix/"><link rel="prev" title="Sum" href="../scalarization/sum/">
+<link rel="index" title="Index" href="../../genindex/"><link rel="search" title="Search" href="../../search/"><link rel="next" title="Constant" href="constant/"><link rel="prev" title="Trimmed Mean" href="../aggregation/trimmed_mean/">
         <link rel="prefetch" href="../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>linalg - TorchJD</title>
+        <title>scalarization - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/linalg/index.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/scalarization/index.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -183,7 +183,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -256,17 +256,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../scalarization/constant/">Constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../scalarization/mean/">Mean</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../scalarization/random/">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../scalarization/sum/">Sum</a></li>
+<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">scalarization</a><input aria-label="Toggle navigation of scalarization" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sum/">Sum</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">linalg</a><input aria-label="Toggle navigation of linalg" checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="matrix/">Matrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="psd_matrix/">PSDMatrix</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dual_cone/">Dual Cone Projectors</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/matrix/">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/psd_matrix/">PSDMatrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linalg/dual_cone/">Dual Cone Projectors</a></li>
 </ul>
 </li>
 </ul>
@@ -289,7 +289,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/docs/linalg/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/docs/scalarization/index.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -302,17 +302,57 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-torchjd.linalg">
-<span id="linalg"></span><h1>linalg<a class="headerlink" href="#module-torchjd.linalg" title="Link to this heading">¶</a></h1>
-<p>This module provides utilitary linear algebra methods as well as types to represent specific
-structural properties.</p>
+          <section id="module-torchjd.scalarization">
+<span id="scalarization"></span><h1>scalarization<a class="headerlink" href="#module-torchjd.scalarization" title="Link to this heading">¶</a></h1>
+<p>A <a class="reference internal" href="#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> reduces a tensor of values of any shape into a single
+scalar value. This is the simple baseline
+against which <a class="reference internal" href="../aggregation/#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregators</span></code></a> are compared: instead of
+combining the per-loss gradients via the Jacobian or its Gramian, a
+<a class="reference internal" href="#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> combines the losses directly, and a standard call to
+<a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.Tensor.backward.html#torch.Tensor.backward" title="(in PyTorch v2.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">backward()</span></code></a> produces the gradient.</p>
+<p>The following example shows how to use <a class="reference internal" href="mean/#torchjd.scalarization.Mean" title="torchjd.scalarization.Mean"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mean</span></code></a> to combine a vector of
+losses into a single scalar loss.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">tensor</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.scalarization</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mean</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scalarizer</span> <span class="o">=</span> <span class="n">Mean</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">losses</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss</span> <span class="o">=</span> <span class="n">scalarizer</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss</span>
+<span class="go">tensor(2.)</span>
+</pre></div>
+</div>
+<section id="abstract-base-class">
+<h2>Abstract base class<a class="headerlink" href="#abstract-base-class" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="torchjd.scalarization.Scalarizer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">Scalarizer</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/scalarization/_scalarizer_base.py#L6-L31"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Scalarizer" title="Link to this definition">¶</a></dt>
+<dd><p>Abstract base class for all scalarizers. Reduces a tensor of values of any shape into a single
+scalar value.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.scalarization.Scalarizer.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Scalarizer.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The tensor of values to scalarize. May be of any shape.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 <div class="toctree-wrapper compound">
 </div>
+</section>
 </section>
 
         </article>
@@ -320,23 +360,23 @@ structural properties.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="matrix/">
+          <a class="next-page" href="constant/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Matrix</div>
+                <div class="title">Constant</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../scalarization/sum/">
+          <a class="prev-page" href="../aggregation/trimmed_mean/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Sum</div>
+                <div class="title">Trimmed Mean</div>
                 
               </div>
             </a>
@@ -358,8 +398,33 @@ structural properties.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">scalarization</a><ul>
+<li><a class="reference internal" href="#abstract-base-class">Abstract base class</a><ul>
+<li><a class="reference internal" href="#torchjd.scalarization.Scalarizer"><code class="docutils literal notranslate"><span class="pre">Scalarizer</span></code></a><ul>
+<li><a class="reference internal" href="#torchjd.scalarization.Scalarizer.__call__"><code class="docutils literal notranslate"><span class="pre">Scalarizer.__call__()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

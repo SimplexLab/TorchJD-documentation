@@ -242,7 +242,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/dualproj/">DualProj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/flattening/">Flattening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/fairgrad/">FairGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/imtl_g/">IMTL-G</a></li>
@@ -256,7 +256,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../docs/linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docs/scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/sum/">Sum</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docs/linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../docs/linalg/matrix/">Matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/linalg/psd_matrix/">PSDMatrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/linalg/dual_cone/">Dual Cone Projectors</a></li>
@@ -303,17 +310,39 @@
           <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
 <p>TorchJD can be installed directly with pip:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>torchjd
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">&quot;torchjd[quadprog_projector]&quot;</span>
 </pre></div>
 </div>
 <p>Note that <code class="docutils literal notranslate"><span class="pre">torchjd</span></code> requires Python 3.10, 3.11, 3.12, 3.13 or 3.14 and <code class="docutils literal notranslate"><span class="pre">torch&gt;=2.0</span></code>.</p>
-<p>Some aggregators (CAGrad and Nash-MTL) have additional dependencies that are not included by default
-when installing <code class="docutils literal notranslate"><span class="pre">torchjd</span></code>. To install them, you can use:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;torchjd[cagrad]&quot;</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;torchjd[nash_mtl]&quot;</span>
-</pre></div>
+<p>Some aggregators have additional dependencies that are not included by default when installing
+<code class="docutils literal notranslate"><span class="pre">torchjd</span></code>. The following table lists the optional dependency groups and the aggregators they enable:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Group</p></th>
+<th class="head"><p>Classes</p></th>
+<th class="head"><p>Dependencies</p></th>
+<th class="head"><p>Install command</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">quadprog_projector</span></code></p></td>
+<td><p><a class="reference internal" href="../docs/linalg/dual_cone/#torchjd.linalg.QuadprogProjector" title="torchjd.linalg.QuadprogProjector"><code class="xref py py-class docutils literal notranslate"><span class="pre">QuadprogProjector</span></code></a> (used in <a class="reference internal" href="../docs/aggregation/upgrad/#torchjd.aggregation.UPGrad" title="torchjd.aggregation.UPGrad"><code class="xref py py-class docutils literal notranslate"><span class="pre">UPGrad</span></code></a> and <a class="reference internal" href="../docs/aggregation/dualproj/#torchjd.aggregation.DualProj" title="torchjd.aggregation.DualProj"><code class="xref py py-class docutils literal notranslate"><span class="pre">DualProj</span></code></a>)</p></td>
+<td><p><a class="reference external" href="https://github.com/numpy/numpy">numpy</a>, <a class="reference external" href="https://github.com/quadprog/quadprog">quadprog</a>, <a class="reference external" href="https://github.com/qpsolvers/qpsolvers">qpsolvers</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;torchjd[quadprog_projector]&quot;</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cagrad</span></code></p></td>
+<td><p><a class="reference internal" href="../docs/aggregation/cagrad/#torchjd.aggregation.CAGrad" title="torchjd.aggregation.CAGrad"><code class="xref py py-class docutils literal notranslate"><span class="pre">CAGrad</span></code></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numpy/numpy">numpy</a>, <a class="reference external" href="https://github.com/cvxpy/cvxpy/">cvxpy</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;torchjd[cagrad]&quot;</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nash_mtl</span></code></p></td>
+<td><p><a class="reference internal" href="../docs/aggregation/nash_mtl/#torchjd.aggregation.NashMTL" title="torchjd.aggregation.NashMTL"><code class="xref py py-class docutils literal notranslate"><span class="pre">NashMTL</span></code></a></p></td>
+<td><p><a class="reference external" href="https://github.com/numpy/numpy">numpy</a>, <a class="reference external" href="https://github.com/cvxpy/cvxpy/">cvxpy</a>, <a class="reference external" href="https://github.com/embotech/ecos">ecos</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">&quot;torchjd[nash_mtl]&quot;</span></code></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <p>To install <code class="docutils literal notranslate"><span class="pre">torchjd</span></code> with all of its optional dependencies, you can also use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;torchjd[full]&quot;</span>
@@ -370,7 +399,7 @@ when installing <code class="docutils literal notranslate"><span class="pre">tor
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=c83676ea"></script>
+</div><script src="../_static/documentation_options.js?v=b280cd05"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>

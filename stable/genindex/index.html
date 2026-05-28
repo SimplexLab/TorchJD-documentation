@@ -240,7 +240,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/dualproj/">DualProj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/flattening/">Flattening</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/fairgrad/">FairGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/gradvac/">GradVac</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/imtl_g/">IMTL-G</a></li>
@@ -254,7 +254,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../docs/aggregation/trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../docs/linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docs/scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../docs/scalarization/sum/">Sum</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../docs/linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../docs/linalg/matrix/">Matrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/linalg/psd_matrix/">PSDMatrix</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../docs/linalg/dual_cone/">Dual Cone Projectors</a></li>
@@ -324,9 +331,9 @@
 </li>
           <li><a href="../docs/aggregation/dualproj/#torchjd.aggregation.DualProjWeighting.__call__">(torchjd.aggregation.DualProjWeighting method)</a>
 </li>
-          <li><a href="../docs/aggregation/flattening/#torchjd.aggregation.Flattening.__call__">(torchjd.aggregation.Flattening method)</a>
+          <li><a href="../docs/aggregation/fairgrad/#torchjd.aggregation.FairGrad.__call__">(torchjd.aggregation.FairGrad method)</a>
 </li>
-          <li><a href="../docs/aggregation/#torchjd.aggregation.GeneralizedWeighting.__call__">(torchjd.aggregation.GeneralizedWeighting method)</a>
+          <li><a href="../docs/aggregation/fairgrad/#torchjd.aggregation.FairGradWeighting.__call__">(torchjd.aggregation.FairGradWeighting method)</a>
 </li>
           <li><a href="../docs/aggregation/graddrop/#torchjd.aggregation.GradDrop.__call__">(torchjd.aggregation.GradDrop method)</a>
 </li>
@@ -378,6 +385,16 @@
 </li>
           <li><a href="../docs/linalg/dual_cone/#torchjd.linalg.DualConeProjector.__call__">(torchjd.linalg.DualConeProjector method)</a>
 </li>
+          <li><a href="../docs/scalarization/constant/#torchjd.scalarization.Constant.__call__">(torchjd.scalarization.Constant method)</a>
+</li>
+          <li><a href="../docs/scalarization/mean/#torchjd.scalarization.Mean.__call__">(torchjd.scalarization.Mean method)</a>
+</li>
+          <li><a href="../docs/scalarization/random/#torchjd.scalarization.Random.__call__">(torchjd.scalarization.Random method)</a>
+</li>
+          <li><a href="../docs/scalarization/#torchjd.scalarization.Scalarizer.__call__">(torchjd.scalarization.Scalarizer method)</a>
+</li>
+          <li><a href="../docs/scalarization/sum/#torchjd.scalarization.Sum.__call__">(torchjd.scalarization.Sum method)</a>
+</li>
         </ul></li>
     </ul></td>
   </tr></table>
@@ -419,12 +436,16 @@
 </li>
         <li><a href="../docs/autogram/engine/#torchjd.autogram.Engine.compute_gramian">compute_gramian() (torchjd.autogram.Engine method)</a>
 </li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="../docs/aggregation/config/#torchjd.aggregation.ConFIG">ConFIG (class in torchjd.aggregation)</a>
 </li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="../docs/aggregation/constant/#torchjd.aggregation.Constant">Constant (class in torchjd.aggregation)</a>
+
+        <ul>
+          <li><a href="../docs/scalarization/constant/#torchjd.scalarization.Constant">(class in torchjd.scalarization)</a>
 </li>
+        </ul></li>
         <li><a href="../docs/aggregation/constant/#torchjd.aggregation.ConstantWeighting">ConstantWeighting (class in torchjd.aggregation)</a>
 </li>
         <li><a href="../docs/aggregation/cr_mogm/#torchjd.aggregation.CRMOGMWeighting">CRMOGMWeighting (class in torchjd.aggregation)</a>
@@ -463,7 +484,11 @@
   <h2>F</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="../docs/aggregation/flattening/#torchjd.aggregation.Flattening">Flattening (class in torchjd.aggregation)</a>
+        <li><a href="../docs/aggregation/fairgrad/#torchjd.aggregation.FairGrad">FairGrad (class in torchjd.aggregation)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="../docs/aggregation/fairgrad/#torchjd.aggregation.FairGradWeighting">FairGradWeighting (class in torchjd.aggregation)</a>
 </li>
     </ul></td>
   </tr></table>
@@ -473,14 +498,12 @@
   <h2>G</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="../docs/aggregation/#torchjd.aggregation.GeneralizedWeighting">GeneralizedWeighting (class in torchjd.aggregation)</a>
-</li>
         <li><a href="../docs/aggregation/graddrop/#torchjd.aggregation.GradDrop">GradDrop (class in torchjd.aggregation)</a>
+</li>
+        <li><a href="../docs/aggregation/gradvac/#torchjd.aggregation.GradVac">GradVac (class in torchjd.aggregation)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
-        <li><a href="../docs/aggregation/gradvac/#torchjd.aggregation.GradVac">GradVac (class in torchjd.aggregation)</a>
-</li>
         <li><a href="../docs/aggregation/gradvac/#torchjd.aggregation.GradVacWeighting">GradVacWeighting (class in torchjd.aggregation)</a>
 </li>
         <li><a href="../docs/aggregation/#torchjd.aggregation.GramianWeightedAggregator">GramianWeightedAggregator (class in torchjd.aggregation)</a>
@@ -538,7 +561,11 @@
         <li><a href="../docs/linalg/matrix/#torchjd.linalg.Matrix">Matrix (class in torchjd.linalg)</a>
 </li>
         <li><a href="../docs/aggregation/mean/#torchjd.aggregation.Mean">Mean (class in torchjd.aggregation)</a>
+
+        <ul>
+          <li><a href="../docs/scalarization/mean/#torchjd.scalarization.Mean">(class in torchjd.scalarization)</a>
 </li>
+        </ul></li>
         <li><a href="../docs/aggregation/mean/#torchjd.aggregation.MeanWeighting">MeanWeighting (class in torchjd.aggregation)</a>
 </li>
         <li><a href="../docs/aggregation/mgda/#torchjd.aggregation.MGDA">MGDA (class in torchjd.aggregation)</a>
@@ -558,6 +585,8 @@
           <li><a href="../docs/autojac/#module-torchjd.autojac">torchjd.autojac</a>
 </li>
           <li><a href="../docs/linalg/#module-torchjd.linalg">torchjd.linalg</a>
+</li>
+          <li><a href="../docs/scalarization/#module-torchjd.scalarization">torchjd.scalarization</a>
 </li>
         </ul></li>
         <li><a href="../docs/autojac/mtl_backward/#torchjd.autojac.mtl_backward">mtl_backward() (in module torchjd.autojac)</a>
@@ -607,7 +636,11 @@
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="../docs/aggregation/random/#torchjd.aggregation.Random">Random (class in torchjd.aggregation)</a>
+
+        <ul>
+          <li><a href="../docs/scalarization/random/#torchjd.scalarization.Random">(class in torchjd.scalarization)</a>
 </li>
+        </ul></li>
         <li><a href="../docs/aggregation/random/#torchjd.aggregation.RandomWeighting">RandomWeighting (class in torchjd.aggregation)</a>
 </li>
         <li><a href="../docs/aggregation/cr_mogm/#torchjd.aggregation.CRMOGMWeighting.reset">reset() (torchjd.aggregation.CRMOGMWeighting method)</a>
@@ -630,12 +663,18 @@
   <h2>S</h2>
   <table style="width: 100%" class="indextable genindextable"><tr>
     <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="../docs/scalarization/#torchjd.scalarization.Scalarizer">Scalarizer (class in torchjd.scalarization)</a>
+</li>
         <li><a href="../docs/aggregation/#torchjd.aggregation.Stateful">Stateful (class in torchjd.aggregation)</a>
 </li>
     </ul></td>
     <td style="width: 33%; vertical-align: top;"><ul>
         <li><a href="../docs/aggregation/sum/#torchjd.aggregation.Sum">Sum (class in torchjd.aggregation)</a>
+
+        <ul>
+          <li><a href="../docs/scalarization/sum/#torchjd.scalarization.Sum">(class in torchjd.scalarization)</a>
 </li>
+        </ul></li>
         <li><a href="../docs/aggregation/sum/#torchjd.aggregation.SumWeighting">SumWeighting (class in torchjd.aggregation)</a>
 </li>
     </ul></td>
@@ -660,8 +699,6 @@
           <li><a href="../docs/autogram/#module-torchjd.autogram">module</a>
 </li>
         </ul></li>
-    </ul></td>
-    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     torchjd.autojac
 
@@ -669,11 +706,20 @@
           <li><a href="../docs/autojac/#module-torchjd.autojac">module</a>
 </li>
         </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
         <li>
     torchjd.linalg
 
         <ul>
           <li><a href="../docs/linalg/#module-torchjd.linalg">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchjd.scalarization
+
+        <ul>
+          <li><a href="../docs/scalarization/#module-torchjd.scalarization">module</a>
 </li>
         </ul></li>
         <li><a href="../docs/aggregation/trimmed_mean/#torchjd.aggregation.TrimmedMean">TrimmedMean (class in torchjd.aggregation)</a>
@@ -742,7 +788,7 @@
       
     </aside>
   </div>
-</div><script src="../_static/documentation_options.js?v=c83676ea"></script>
+</div><script src="../_static/documentation_options.js?v=b280cd05"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
