@@ -249,6 +249,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../krum/">Krum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mgda/">MGDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modo/">MoDo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nash_mtl/">Nash-MTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pcgrad/">PCGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
@@ -258,8 +259,10 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/geometric_mean/">GeometricMean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/mean/">Mean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/stch/">STCH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/sum/">Sum</a></li>
 </ul>
 </li>
@@ -311,7 +314,7 @@
 <h1>FairGrad<a class="headerlink" href="#fairgrad" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.FairGrad">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">FairGrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/aggregation/_fairgrad.py#L81-L123"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGrad" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">FairGrad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.13.0/src/torchjd/aggregation/_fairgrad.py#L81-L123"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGrad" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.GramianWeightedAggregator" title="torchjd.aggregation.GramianWeightedAggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">GramianWeightedAggregator</span></code></a> using the step decision of Algorithm 1
 of <a class="reference external" href="https://arxiv.org/pdf/2402.15638.pdf">Fair Resource Allocation in Multi-Task Learning</a>.</p>
 <dl class="field-list simple">
@@ -332,7 +335,7 @@ To install them, use <code class="docutils literal notranslate"><span class="pre
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.FairGrad.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGrad.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.13.0/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGrad.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -348,7 +351,7 @@ To install them, use <code class="docutils literal notranslate"><span class="pre
 
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.FairGradWeighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">FairGradWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/aggregation/_fairgrad.py#L24-L78"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGradWeighting" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">FairGradWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_iters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.13.0/src/torchjd/aggregation/_fairgrad.py#L24-L78"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGradWeighting" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/psd_matrix/#torchjd.linalg.PSDMatrix" title="torchjd.linalg.PSDMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDMatrix</span></code></a>] giving the
 weights of <a class="reference internal" href="#torchjd.aggregation.FairGrad" title="torchjd.aggregation.FairGrad"><code class="xref py py-class docutils literal notranslate"><span class="pre">FairGrad</span></code></a>, as defined in Equation 4 of <a class="reference external" href="https://arxiv.org/pdf/2402.15638">Fair Resource
 Allocation in Multi-Task Learning</a>.</p>
@@ -374,7 +377,7 @@ To install them, use <code class="docutils literal notranslate"><span class="pre
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.FairGradWeighting.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gramian</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.12.0/src/torchjd/aggregation/_weighting_bases.py#L71-L77"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGradWeighting.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gramian</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.13.0/src/torchjd/aggregation/_weighting_bases.py#L71-L77"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.FairGradWeighting.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the vector of weights from the input Gramian and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -439,7 +442,7 @@ To install them, use <code class="docutils literal notranslate"><span class="pre
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=b280cd05"></script>
+</div><script src="../../../_static/documentation_options.js?v=2dc2599f"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
