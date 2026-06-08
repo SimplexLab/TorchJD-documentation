@@ -264,6 +264,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../docs/scalarization/random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/scalarization/stch/">STCH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../docs/scalarization/sum/">Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../docs/scalarization/uw/">UW</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../docs/linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -327,8 +328,8 @@ strategy in the paper.</p></li>
 </ol>
 <p>In TorchJD, grouping is achieved by calling <a class="reference internal" href="../../docs/autojac/jac_to_grad/#torchjd.autojac.jac_to_grad" title="torchjd.autojac.jac_to_grad"><code class="xref py py-func docutils literal notranslate"><span class="pre">jac_to_grad()</span></code></a> once per group
 after <a class="reference internal" href="../../docs/autojac/backward/#torchjd.autojac.backward" title="torchjd.autojac.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a> or <a class="reference internal" href="../../docs/autojac/mtl_backward/#torchjd.autojac.mtl_backward" title="torchjd.autojac.mtl_backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">mtl_backward()</span></code></a>, with a dedicated
-aggregator instance per group. For <a class="reference internal" href="../../docs/aggregation/#torchjd.aggregation.Stateful" title="torchjd.aggregation.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a> aggregators, each instance
-should independently maintain its own state (e.g. the EMA <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> state in
+aggregator instance per group. For <a class="reference internal" href="../../docs/stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a> aggregators, each instance should
+independently maintain its own state (e.g. the EMA <span class="math notranslate nohighlight">\(\hat{\phi}\)</span> state in
 <a class="reference internal" href="../../docs/aggregation/gradvac/#torchjd.aggregation.GradVac" title="torchjd.aggregation.GradVac"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradVac</span></code></a>, matching the per-block targets from the original paper).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
