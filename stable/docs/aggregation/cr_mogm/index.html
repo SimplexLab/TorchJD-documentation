@@ -260,10 +260,12 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/geometric_mean/">GeometricMean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/imtl_l/">IMTL-L</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/mean/">Mean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/stch/">STCH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/sum/">Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/uw/">UW</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -314,8 +316,8 @@
 <h1>CR-MOGM<a class="headerlink" href="#cr-mogm" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.CRMOGMWeighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">CRMOGMWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weighting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.13.0/src/torchjd/aggregation/_cr_mogm.py#L14-L155"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation._mixins.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">CRMOGMWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">weighting</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/aggregation/_cr_mogm.py#L14-L155"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
 <a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation._weighting_bases.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> that wraps another
 <a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation._weighting_bases.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> and stabilises the weights it
 produces with an exponential moving average (EMA) across calls. This is the weight-smoothing
@@ -354,7 +356,7 @@ example: the exponential moving average of constant weights will always be equal
 themselves, so wrapping by <code class="docutils literal notranslate"><span class="pre">CRMOGMWeighting</span></code> will have no effect.</p>
 <p>This weighting is stateful: it keeps <span class="math notranslate nohighlight">\(\lambda_{k-1}\)</span> across calls. Use <a class="reference internal" href="#torchjd.aggregation.CRMOGMWeighting.reset" title="torchjd.aggregation.CRMOGMWeighting.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a>
 to restart the smoothing from the initial state. Note that calling <a class="reference internal" href="#torchjd.aggregation.CRMOGMWeighting.reset" title="torchjd.aggregation.CRMOGMWeighting.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> will also
-reset the wrapped weighting if it is <a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>.</p>
+reset the wrapped weighting if it is <a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -395,9 +397,9 @@ wrapped by CR-MOGM:</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.CRMOGMWeighting.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.13.0/src/torchjd/aggregation/_cr_mogm.py#L120-L128"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting.reset" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/aggregation/_cr_mogm.py#L120-L128"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting.reset" title="Link to this definition">¶</a></dt>
 <dd><p>Clears the EMA state so the next forward restarts from the initial state. Also resets the
-wrapped weighting if it is <a class="reference internal" href="../#torchjd.aggregation.Stateful" title="torchjd.aggregation._mixins.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>.</p>
+wrapped weighting if it is <a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
@@ -407,7 +409,7 @@ wrapped weighting if it is <a class="reference internal" href="../#torchjd.aggre
 
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.CRMOGMWeighting.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.13.0/src/torchjd/aggregation/_weighting_bases.py#L30-L37"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stat</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/aggregation/_weighting_bases.py#L30-L37"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.CRMOGMWeighting.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the vector of weights from the input stat and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -472,7 +474,7 @@ wrapped weighting if it is <a class="reference internal" href="../#torchjd.aggre
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=2dc2599f"></script>
+</div><script src="../../../_static/documentation_options.js?v=47edbadb"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

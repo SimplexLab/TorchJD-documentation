@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../genindex/"><link rel="search" title="Search" href="../../search/"><link rel="next" title="Engine" href="engine/"><link rel="prev" title="Grouping" href="../../examples/grouping/">
+<link rel="index" title="Index" href="../../genindex/"><link rel="search" title="Search" href="../../search/">
         <link rel="prefetch" href="../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>autogram - TorchJD</title>
+        <title>&lt;no title&gt; - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/autogram/index.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/stateful.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -183,7 +183,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
@@ -222,9 +222,9 @@
 </li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
-<ul class="current">
-<li class="toctree-l1 current has-children current-page"><a class="current reference internal" href="#">autogram</a><input aria-label="Toggle navigation of autogram" checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="engine/">Engine</a></li>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../autogram/">autogram</a><input aria-label="Toggle navigation of autogram" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../autogram/engine/">Engine</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../autojac/">autojac</a><input aria-label="Toggle navigation of autojac" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -294,7 +294,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../_sources/docs/autogram/index.rst.txt" title="View this page">
+  <a class="muted-link" href="../../_sources/docs/stateful.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -307,67 +307,36 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="module-torchjd.autogram">
-<span id="autogram"></span><h1>autogram<a class="headerlink" href="#module-torchjd.autogram" title="Link to this heading">¶</a></h1>
-<p>The autogram package provides an engine to efficiently compute the Gramian of the Jacobian of a
-tensor of outputs (generally losses) with respect to some modules’ parameters. This Gramian contains
-all the inner products between pairs of gradients, and is thus a sufficient statistic for most
-weighting methods. The algorithm is formally defined in Section 6 of <a class="reference external" href="https://arxiv.org/pdf/2406.16232">Jacobian Descent For
-Multi-Objective Optimization</a>).</p>
-<p>Due to computing the Gramian iteratively over the layers, without ever having to store the full
-Jacobian in memory, this method is much more memory-efficient than
-<a class="reference internal" href="../autojac/"><span class="doc">autojac</span></a>, which makes it often much faster. Note that we’re still working
-on making autogram faster and more memory-efficient, and it’s interface may change in future
-releases.</p>
-<p>The list of Weightings compatible with <code class="docutils literal notranslate"><span class="pre">autogram</span></code> is:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../aggregation/upgrad/#torchjd.aggregation.UPGradWeighting" title="torchjd.aggregation.UPGradWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">UPGradWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/aligned_mtl/#torchjd.aggregation.AlignedMTLWeighting" title="torchjd.aggregation.AlignedMTLWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlignedMTLWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/cagrad/#torchjd.aggregation.CAGradWeighting" title="torchjd.aggregation.CAGradWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">CAGradWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/constant/#torchjd.aggregation.ConstantWeighting" title="torchjd.aggregation.ConstantWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstantWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/dualproj/#torchjd.aggregation.DualProjWeighting" title="torchjd.aggregation.DualProjWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">DualProjWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/imtl_g/#torchjd.aggregation.IMTLGWeighting" title="torchjd.aggregation.IMTLGWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">IMTLGWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/krum/#torchjd.aggregation.KrumWeighting" title="torchjd.aggregation.KrumWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">KrumWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/mean/#torchjd.aggregation.MeanWeighting" title="torchjd.aggregation.MeanWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/mgda/#torchjd.aggregation.MGDAWeighting" title="torchjd.aggregation.MGDAWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">MGDAWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/pcgrad/#torchjd.aggregation.PCGradWeighting" title="torchjd.aggregation.PCGradWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">PCGradWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/random/#torchjd.aggregation.RandomWeighting" title="torchjd.aggregation.RandomWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">RandomWeighting</span></code></a></p></li>
-<li><p><a class="reference internal" href="../aggregation/sum/#torchjd.aggregation.SumWeighting" title="torchjd.aggregation.SumWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">SumWeighting</span></code></a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
-</section>
+          <dl class="py class">
+<dt class="sig sig-object py" id="torchjd.Stateful">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.</span></span><span class="sig-name descname"><span class="pre">Stateful</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/_mixins.py#L6-L11"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.Stateful" title="Link to this definition">¶</a></dt>
+<dd><p>Mixin adding a reset method.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.Stateful.reset">
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/_mixins.py#L9-L11"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.Stateful.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Resets the internal state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 
         </article>
       </div>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="engine/">
-              <div class="page-info">
-                <div class="context">
-                  <span>Next</span>
-                </div>
-                <div class="title">Engine</div>
-              </div>
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-            </a>
-          <a class="prev-page" href="../../examples/grouping/">
-              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
-              <div class="page-info">
-                <div class="context">
-                  <span>Previous</span>
-                </div>
-                
-                <div class="title">Grouping</div>
-                
-              </div>
-            </a>
+          
+          
         </div>
         <div class="bottom-of-page">
           <div class="left-details">
@@ -386,8 +355,27 @@ releases.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Stateful</span></code></a><ul>
+<li><a class="reference internal" href="#torchjd.Stateful.reset"><code class="docutils literal notranslate"><span class="pre">Stateful.reset()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
