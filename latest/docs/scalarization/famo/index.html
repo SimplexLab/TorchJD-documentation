@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="STCH" href="../stch/"><link rel="prev" title="Mean" href="../mean/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="GeometricMean" href="../geometric_mean/"><link rel="prev" title="DWA" href="../dwa/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Random - TorchJD</title>
+        <title>FAMO - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/scalarization/random.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/scalarization/famo.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -261,11 +261,11 @@
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../">scalarization</a><input aria-label="Toggle navigation of scalarization" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dwa/">DWA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../famo/">FAMO</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">FAMO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geometric_mean/">GeometricMean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../imtl_l/">IMTL-L</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stch/">STCH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../uw/">UW</a></li>
@@ -297,7 +297,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/scalarization/random.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/scalarization/famo.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -315,17 +315,125 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="random">
-<h1>Random<a class="headerlink" href="#random" title="Link to this heading">¶</a></h1>
+          <section id="famo">
+<h1>FAMO<a class="headerlink" href="#famo" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.scalarization.Random">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">Random</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/scalarization/_random.py#L8-L19"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Random" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> that combines the input tensor of values with
-positive random weights summing to 1, as defined in Algorithm 2 of <a class="reference external" href="https://arxiv.org/pdf/2111.10603.pdf">Reasonable Effectiveness of
-Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
+<dt class="sig sig-object py" id="torchjd.scalarization.FAMO">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">FAMO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_losses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/scalarization/_famo.py#L17-L195"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> that combines the input tensor of values using Fast
+Adaptive Multitask Optimization (FAMO), proposed in <a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2023/file/b2fe1ee8d936ac08dd26f2ff58986c8f-Paper-Conference.pdf">FAMO: Fast Adaptive Multitask Optimization</a>.</p>
+<p>FAMO decreases all task losses at an approximately equal rate while using only the loss values,
+so it never needs the per-task gradients. The values are combined as</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[c \sum_i z_i \log(\ell_i - b_i + \epsilon), \qquad
+z = \mathrm{softmax}(w), \qquad
+c = \left( \sum_i \frac{z_i}{\ell_i - b_i + \epsilon} \right)^{-1}\]</div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th value (typically the loss of task <span class="math notranslate nohighlight">\(i\)</span>);</p></li>
+<li><p><span class="math notranslate nohighlight">\(b_i\)</span> is the lower bound on the <span class="math notranslate nohighlight">\(i\)</span>-th loss (the <code class="docutils literal notranslate"><span class="pre">min_losses</span></code> parameter,
+<code class="docutils literal notranslate"><span class="pre">0</span></code> by default);</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_i\)</span> is the task-weighting logit of task <span class="math notranslate nohighlight">\(i\)</span>, learned internally by FAMO;</p></li>
+<li><p><span class="math notranslate nohighlight">\(z = \mathrm{softmax}(w)\)</span> are the task weights;</p></li>
+<li><p><span class="math notranslate nohighlight">\(c\)</span> is a normalization constant (treated as a constant in the backward pass) that makes
+the resulting update a convex combination of the task gradients;</p></li>
+<li><p><span class="math notranslate nohighlight">\(\epsilon\)</span> is a small positive constant for numerical stability.</p></li>
+</ul>
+<p>Backpropagating this scalarized loss gives FAMO’s balanced update direction for the model.</p>
+<p>The task-weighting logits <span class="math notranslate nohighlight">\(w\)</span> are not learned through that backward pass. Instead, after
+the model has been updated, call <a class="reference internal" href="#torchjd.scalarization.FAMO.update" title="torchjd.scalarization.FAMO.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> with the losses recomputed on the same batch. It
+measures how much each loss changed across the step,</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\delta_i = \log(\ell_i^{\text{before}} - b_i + \epsilon)
+- \log(\ell_i^{\text{after}} - b_i + \epsilon),\]</div>
+</div>
+<p>and takes an <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.optim.Adam.html">Adam</a> step
+on <span class="math notranslate nohighlight">\(w\)</span> in that direction. FAMO owns this <code class="docutils literal notranslate"><span class="pre">Adam</span></code> internally
+(configured by <code class="docutils literal notranslate"><span class="pre">lr</span></code> and <code class="docutils literal notranslate"><span class="pre">weight_decay</span></code>), so you only call the scalarizer and then
+<a class="reference internal" href="#torchjd.scalarization.FAMO.update" title="torchjd.scalarization.FAMO.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a>; there is no second optimizer to manage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shape</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>]</span>) – The shape of the values to scalarize, used to create one task-weighting logit per
+value. An <code class="docutils literal notranslate"><span class="pre">int</span></code> <code class="docutils literal notranslate"><span class="pre">n</span></code> is interpreted as the shape <code class="docutils literal notranslate"><span class="pre">(n,)</span></code>.</p></li>
+<li><p><strong>min_losses</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The per-task lower bound <span class="math notranslate nohighlight">\(b\)</span> subtracted from the values before the
+logarithm. If provided, it must have the shape given by <code class="docutils literal notranslate"><span class="pre">shape</span></code>. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, zeros are
+used, in which case the values must be strictly positive.</p></li>
+<li><p><strong>lr</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Learning rate of the internal <code class="docutils literal notranslate"><span class="pre">Adam</span></code> that learns the task-weighting logits. Must be
+non-negative. The paper uses <code class="docutils literal notranslate"><span class="pre">0.025</span></code>.</p></li>
+<li><p><strong>weight_decay</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Weight decay of the internal <code class="docutils literal notranslate"><span class="pre">Adam</span></code>, i.e. the paper’s regularization
+coefficient on the logits. Must be non-negative. Defaults to <code class="docutils literal notranslate"><span class="pre">1e-3</span></code> (as in the paper’s
+Algorithm 2 and in LibMTL); the official implementation uses <code class="docutils literal notranslate"><span class="pre">1e-5</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<p>The following example shows how to do one iteration of training of a model with FAMO. The losses
+are recomputed on the same batch after the model step so that <a class="reference internal" href="#torchjd.scalarization.FAMO.update" title="torchjd.scalarization.FAMO.update"><code class="xref py py-meth docutils literal notranslate"><span class="pre">update()</span></code></a> can adjust the
+weights.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">Linear</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.scalarization</span><span class="w"> </span><span class="kn">import</span> <span class="n">FAMO</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Linear</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scalarizer</span> <span class="o">=</span> <span class="n">FAMO</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Move to the right device with e.g. FAMO(2).to(device=&quot;cuda&quot;)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">features</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">losses</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">features</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># One loss per output dimension.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss</span> <span class="o">=</span> <span class="n">scalarizer</span><span class="p">(</span><span class="n">losses</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Recompute the losses on the same batch, after the model update.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">new_losses</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">features</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">scalarizer</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_losses</span><span class="p">)</span>  <span class="c1"># Updates the task weights internally.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>FAMO takes the logarithm of <span class="math notranslate nohighlight">\(\ell_i - b_i\)</span>, so each value must stay strictly above its
+lower bound <span class="math notranslate nohighlight">\(b_i\)</span> (the paper assumes non-negative losses). With the default
+<code class="docutils literal notranslate"><span class="pre">min_losses</span></code> of zeros, this means the values must be strictly positive. This precondition
+is not enforced.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This implementation was adapted from the <a class="reference external" href="https://github.com/Cranial-XIX/FAMO">official implementation</a>.</p>
+</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="torchjd.scalarization.Random.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Random.__call__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="torchjd.scalarization.FAMO.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/scalarization/_famo.py#L148-L176"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.update" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the task-weighting logits from the change in losses across the model update, by
+taking one step of the internal <code class="docutils literal notranslate"><span class="pre">Adam</span></code>. Must be called after the scalarizer has been
+called on the batch’s losses, with the losses recomputed on the same batch after the model
+step.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.scalarization.FAMO.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/scalarization/_famo.py#L178-L182"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Resets the internal state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.scalarization.FAMO.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -346,23 +454,23 @@ Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../stch/">
+          <a class="next-page" href="../geometric_mean/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">STCH</div>
+                <div class="title">GeometricMean</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../mean/">
+          <a class="prev-page" href="../dwa/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Mean</div>
+                <div class="title">DWA</div>
                 
               </div>
             </a>
@@ -395,6 +503,7 @@ Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script data-domain="torchjd.org" defer="defer" src="https://stats.torchjd.org/js/script.js"></script>
     </body>
 </html>
