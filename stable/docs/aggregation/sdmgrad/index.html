@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="scalarization" href="../../scalarization/"><link rel="prev" title="Sum" href="../sum/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Sum" href="../sum/"><link rel="prev" title="Random" href="../random/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Trimmed Mean - TorchJD</title>
+        <title>SDMGrad - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/trimmed_mean.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/sdmgrad.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -253,9 +253,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../nash_mtl/">Nash-MTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pcgrad/">PCGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sdmgrad/">SDMGrad</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">SDMGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Trimmed Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -297,7 +297,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/aggregation/trimmed_mean.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/aggregation/sdmgrad.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -315,30 +315,108 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="trimmed-mean">
-<h1>Trimmed Mean<a class="headerlink" href="#trimmed-mean" title="Link to this heading">¶</a></h1>
+          <section id="sdmgrad">
+<h1>SDMGrad<a class="headerlink" href="#sdmgrad" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.TrimmedMean">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">TrimmedMean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trim_number</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_trimmed_mean.py#L7-L57"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.TrimmedMean" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> for adversarial federated learning,
-that trims the most extreme values of the input matrix, before averaging its rows, as defined in
-<a class="reference external" href="https://proceedings.mlr.press/v80/yin18a/yin18a.pdf">Byzantine-Robust Distributed Learning: Towards Optimal Statistical Rates</a>.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.SDMGradWeighting">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">SDMGradWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">momentum</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pref_vector</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_sdmgrad.py#L18-L214"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.SDMGradWeighting" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/matrix/#torchjd.linalg.Matrix" title="torchjd.linalg.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a>] from <a class="reference external" href="https://arxiv.org/pdf/2305.18409">Direction-oriented
+Multi-objective Learning: Simple and Provable Stochastic Algorithms</a> (NeurIPS 2023).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The input matrix must be <span class="math notranslate nohighlight">\(A = J_1 J_2^\top\)</span>, computed from two <strong>independent</strong>
+mini-batches via <a class="reference internal" href="../../autojac/jac/#torchjd.autojac.jac" title="torchjd.autojac.jac"><code class="xref py py-func docutils literal notranslate"><span class="pre">torchjd.autojac.jac()</span></code></a>. It is <strong>not</strong> a Gramian and is not symmetric
+or positive semi-definite in general. See the usage examples below.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>trim_number</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – The number of maximum and minimum values to remove from each column of the
-input matrix (note that <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">trim_number</span></code> values are removed from each column).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lr</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Learning rate of the inner SGD that solves for the task weights. Must be positive.</p></li>
+<li><p><strong>momentum</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Momentum of the inner SGD. Must be in <span class="math notranslate nohighlight">\([0, 1)\)</span>.</p></li>
+<li><p><strong>n_iter</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of inner SGD iterations performed at each call. Must be positive.</p></li>
+<li><p><strong>lambda_</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Non-negative coefficient controlling how strongly the descent direction is pulled
+toward the preference direction. Must be non-negative.</p></li>
+<li><p><strong>pref_vector</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The preference vector <span class="math notranslate nohighlight">\(\tilde w\)</span> defining the target direction. If not
+provided, defaults to the uniform vector <span class="math notranslate nohighlight">\([1/m, \ldots, 1/m]\)</span> (i.e. the target diection is the average gradient).</p></li>
+</ul>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The inner simplex-projected solver is adapted from the <a class="reference external" href="https://github.com/OptMN-Lab/SDMGrad/blob/main/methods/weight_methods.py">official implementation</a>. Note that the
+official class default for this coefficient is <code class="docutils literal notranslate"><span class="pre">0.6</span></code>, overridden to <code class="docutils literal notranslate"><span class="pre">0.3</span></code> in their own
+experiments, which is the value used here (and in <a class="reference external" href="https://github.com/median-research-group/LibMTL/blob/main/LibMTL/weighting/SDMGrad.py">LibMTL</a>).</p>
+<p>Before the inner solve, the input matrix is scale-normalized by the mean of the square
+roots of its non-negative diagonal entries (following both the official implementation and
+LibMTL). This makes the inner SGD learning rate scale-invariant with respect to gradient
+magnitude. The normalization is briefly described in section 6.1 of the paper.</p>
+</div>
+<div class="admonition-example-three-batches-per-step admonition">
+<p class="admonition-title">Example (three batches per step)</p>
+<p>The following example shows how to train with the SDMGrad algorithm.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.nn</span><span class="w"> </span><span class="kn">import</span> <span class="n">Linear</span><span class="p">,</span> <span class="n">MSELoss</span><span class="p">,</span> <span class="n">ReLU</span><span class="p">,</span> <span class="n">Sequential</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch.optim</span><span class="w"> </span><span class="kn">import</span> <span class="n">SGD</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.aggregation</span><span class="w"> </span><span class="kn">import</span> <span class="n">SDMGradWeighting</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torchjd.autojac</span><span class="w"> </span><span class="kn">import</span> <span class="n">jac</span>
+
+<span class="c1"># Generate data (9 batches of 16 examples of dim 5) for the sake of the example.</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">targets</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="n">weighting</span> <span class="o">=</span> <span class="n">SDMGradWeighting</span><span class="p">(</span><span class="n">lambda_</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+
+<span class="c1"># Consume three consecutive (independent) batches per step.</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span> <span class="o">//</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="c1"># Batches corresponding to ξ, ξ&#39; and ζ in the paper&#39;s algorithm.</span>
+    <span class="n">input_1</span><span class="p">,</span> <span class="n">input_2</span><span class="p">,</span> <span class="n">input_3</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i</span><span class="p">],</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">target_1</span><span class="p">,</span> <span class="n">target_2</span><span class="p">,</span> <span class="n">target_3</span> <span class="o">=</span> <span class="n">targets</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i</span><span class="p">],</span> <span class="n">targets</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">targets</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span>
+
+    <span class="n">losses_1</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">input_1</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">target_1</span><span class="p">)</span>
+    <span class="n">jacs_1</span> <span class="o">=</span> <span class="n">jac</span><span class="p">(</span><span class="n">losses_1</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="n">J_1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">j</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jacs_1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">losses_2</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">input_2</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">target_2</span><span class="p">)</span>
+    <span class="n">jacs_2</span> <span class="o">=</span> <span class="n">jac</span><span class="p">(</span><span class="n">losses_2</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="n">J_2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">j</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">jacs_2</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">A</span> <span class="o">=</span> <span class="n">J_1</span> <span class="o">@</span> <span class="n">J_2</span><span class="o">.</span><span class="n">T</span>
+    <span class="n">weights</span> <span class="o">=</span> <span class="n">weighting</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+    <span class="n">losses_3</span> <span class="o">=</span> <span class="n">criterion</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">input_3</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">target_3</span><span class="p">)</span>
+    <span class="n">losses_3</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+    <span class="n">optimizer</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="torchjd.aggregation.TrimmedMean.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.TrimmedMean.__call__" title="Link to this definition">¶</a></dt>
-<dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.SDMGradWeighting.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_weighting_bases.py#L61-L67"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.SDMGradWeighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the vector of weights from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The Jacobian to aggregate.</p>
+<dd class="field-odd"><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The matrix from which the weights must be extracted.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.SDMGradWeighting.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_sdmgrad.py#L168-L172"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.SDMGradWeighting.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the stored task weights so the next forward starts from uniform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -352,23 +430,23 @@ input matrix (note that <code class="docutils literal notranslate"><span class="
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../scalarization/">
+          <a class="next-page" href="../sum/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">scalarization</div>
+                <div class="title">Sum</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../sum/">
+          <a class="prev-page" href="../random/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Sum</div>
+                <div class="title">Random</div>
                 
               </div>
             </a>
@@ -401,6 +479,7 @@ input matrix (note that <code class="docutils literal notranslate"><span class="
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script data-domain="torchjd.org" defer="defer" src="https://stats.torchjd.org/js/script.js"></script>
     </body>
 </html>

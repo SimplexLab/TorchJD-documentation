@@ -253,12 +253,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/nash_mtl/">Nash-MTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/pcgrad/">PCGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/sdmgrad/">SDMGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/sum/">Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/dwa/">DWA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/famo/">FAMO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/geometric_mean/">GeometricMean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/imtl_l/">IMTL-L</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/mean/">Mean</a></li>
@@ -316,12 +319,12 @@
 <h1>Dual Cone Projectors<a class="headerlink" href="#dual-cone-projectors" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.linalg.DualConeProjector">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.linalg.</span></span><span class="sig-name descname"><span class="pre">DualConeProjector</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/_linalg/_dual_cone.py#L17-L48"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.DualConeProjector" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.linalg.</span></span><span class="sig-name descname"><span class="pre">DualConeProjector</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/_linalg/_dual_cone.py#L17-L48"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.DualConeProjector" title="Link to this definition">¶</a></dt>
 <dd><p>Abstract class whose instances are responsible for projecting vectors onto the dual cone of the
 rows of a matrix, or rather the dual form of this problem.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.linalg.DualConeProjector.__call__">
-<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/_linalg/_dual_cone.py#L23-L48"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.DualConeProjector.__call__" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">abstractmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">U</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/_linalg/_dual_cone.py#L23-L48"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.DualConeProjector.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes for each vector <span class="math notranslate nohighlight">\(u\)</span> in the provided tensor <code class="docutils literal notranslate"><span class="pre">U</span></code>
 the weights <span class="math notranslate nohighlight">\(w\)</span> of the projection of <span class="math notranslate nohighlight">\(J^\top u\)</span> onto the dual cone of
 the rows of <span class="math notranslate nohighlight">\(J\)</span>, provided <span class="math notranslate nohighlight">\(G = J J^\top\)</span> and <span class="math notranslate nohighlight">\(u\)</span>. In other words, this
@@ -358,7 +361,7 @@ semi-definite.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.linalg.QuadprogProjector">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.linalg.</span></span><span class="sig-name descname"><span class="pre">QuadprogProjector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/_linalg/_dual_cone.py#L57-L124"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.QuadprogProjector" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.linalg.</span></span><span class="sig-name descname"><span class="pre">QuadprogProjector</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reg_eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/_linalg/_dual_cone.py#L57-L124"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.linalg.QuadprogProjector" title="Link to this definition">¶</a></dt>
 <dd><p>Solves the quadratic program defined in <a class="reference internal" href="#torchjd.linalg.DualConeProjector.__call__" title="torchjd.linalg.DualConeProjector.__call__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">DualConeProjector.__call__()</span></code></a> using the
 <a class="reference external" href="https://github.com/quadprog/quadprog">quadprog</a> QP solver.</p>
 <dl class="field-list simple">
@@ -417,7 +420,7 @@ ensures that it is positive definite.</p></li>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=47edbadb"></script>
+</div><script src="../../../_static/documentation_options.js?v=d8af2e41"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

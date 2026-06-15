@@ -253,12 +253,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../nash_mtl/">Nash-MTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pcgrad/">PCGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdmgrad/">SDMGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/dwa/">DWA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/famo/">FAMO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/geometric_mean/">GeometricMean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/imtl_l/">IMTL-L</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../scalarization/mean/">Mean</a></li>
@@ -316,7 +319,7 @@
 <h1>MoDo<a class="headerlink" href="#modo" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.MoDoWeighting">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">MoDoWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/aggregation/_modo.py#L17-L198"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MoDoWeighting" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">MoDoWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rho</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_modo.py#L18-L183"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MoDoWeighting" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
 <a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/matrix/#torchjd.linalg.Matrix" title="torchjd.linalg.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a>] from <a class="reference external" href="https://www.jmlr.org/papers/volume25/23-1287/23-1287.pdf">Three-Way
 Trade-Off in Multi-Objective Learning: Optimization, Generalization and Conflict-Avoidance</a> (JMLR 2024).</p>
@@ -432,19 +435,8 @@ the behavior of LibMTL and of the official implementation when <code class="docu
 </div>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="torchjd.aggregation.MoDoWeighting.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/aggregation/_modo.py#L158-L162"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MoDoWeighting.reset" title="Link to this definition">¶</a></dt>
-<dd><p>Clears the stored task weights so the next forward starts from uniform.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.MoDoWeighting.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.14.0/src/torchjd/aggregation/_weighting_bases.py#L61-L67"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MoDoWeighting.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_weighting_bases.py#L61-L67"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MoDoWeighting.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the vector of weights from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -452,6 +444,17 @@ the behavior of LibMTL and of the official implementation when <code class="docu
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.MoDoWeighting.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/aggregation/_modo.py#L159-L163"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.MoDoWeighting.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the stored task weights so the next forward starts from uniform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
@@ -509,7 +512,7 @@ the behavior of LibMTL and of the official implementation when <code class="docu
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=47edbadb"></script>
+</div><script src="../../../_static/documentation_options.js?v=d8af2e41"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
