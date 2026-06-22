@@ -4,7 +4,7 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="STCH" href="../stch/"><link rel="prev" title="Mean" href="../mean/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="STCH" href="../stch/"><link rel="prev" title="PBI" href="../pbi/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
@@ -260,11 +260,13 @@
 </li>
 <li class="toctree-l1 current has-children"><a class="reference internal" href="../">scalarization</a><input aria-label="Toggle navigation of scalarization" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cosmos/">COSMOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dwa/">DWA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../famo/">FAMO</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../geometric_mean/">GeometricMean</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../imtl_l/">IMTL-L</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pbi/">PBI</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stch/">STCH</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
@@ -319,13 +321,13 @@
 <h1>Random<a class="headerlink" href="#random" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.scalarization.Random">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">Random</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/scalarization/_random.py#L8-L19"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Random" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">Random</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_random.py#L8-L19"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Random" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> that combines the input tensor of values with
 positive random weights summing to 1, as defined in Algorithm 2 of <a class="reference external" href="https://arxiv.org/pdf/2111.10603.pdf">Reasonable Effectiveness of
 Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.Random.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.15.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Random.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Random.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -355,14 +357,14 @@ Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../mean/">
+          <a class="prev-page" href="../pbi/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Mean</div>
+                <div class="title">PBI</div>
                 
               </div>
             </a>
@@ -390,7 +392,7 @@ Random Weighting: A Litmus Test for Multi-Task Learning</a>.</p>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=d8af2e41"></script>
+</div><script src="../../../_static/documentation_options.js?v=a21995ae"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
