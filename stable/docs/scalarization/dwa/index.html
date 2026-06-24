@@ -242,6 +242,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/dualproj/">DualProj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/excess_mtl/">ExcessMTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/fairgrad/">FairGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/gradvac/">GradVac</a></li>
@@ -321,7 +322,7 @@
 <h1>DWA<a class="headerlink" href="#dwa" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.scalarization.DWA">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">DWA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_dwa.py#L10-L137"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">DWA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2.0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_dwa.py#L10-L137"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
 <a class="reference internal" href="../#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> that combines the input tensor of values using Dynamic
 Weight Average (DWA), proposed in <a class="reference external" href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Liu_End-To-End_Multi-Task_Learning_With_Attention_CVPR_2019_paper.pdf">End-to-End Multi-Task Learning with Attention</a>.</p>
@@ -386,7 +387,7 @@ expected to keep a consistent, nonzero sign across epochs (they need not be posi
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.DWA.step">
-<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_dwa.py#L104-L115"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA.step" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_dwa.py#L104-L115"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA.step" title="Link to this definition">¶</a></dt>
 <dd><p>Finalizes the current epoch’s average loss and rolls the history forward, discarding the
 average from two epochs ago. Should be called once at the end of each epoch.</p>
 <dl class="field-list simple">
@@ -398,7 +399,7 @@ average from two epochs ago. Should be called once at the end of each epoch.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.DWA.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_dwa.py#L117-L120"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA.reset" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_dwa.py#L117-L120"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA.reset" title="Link to this definition">¶</a></dt>
 <dd><p>Resets the internal state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -409,7 +410,7 @@ average from two epochs ago. Should be called once at the end of each epoch.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.DWA.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.DWA.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -474,7 +475,7 @@ average from two epochs ago. Should be called once at the end of each epoch.</p>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=a21995ae"></script>
+</div><script src="../../../_static/documentation_options.js?v=3d5b0134"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

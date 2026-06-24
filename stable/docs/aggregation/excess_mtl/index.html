@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="Random" href="../random/"><link rel="prev" title="Mean" href="../mean/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="FairGrad" href="../fairgrad/"><link rel="prev" title="DualProj" href="../dualproj/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>PBI - TorchJD</title>
+        <title>ExcessMTL - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/scalarization/pbi.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/excess_mtl.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -234,44 +234,44 @@
 <li class="toctree-l2"><a class="reference internal" href="../../autojac/jac_to_grad/">jac_to_grad</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../aggregation/">aggregation</a><input aria-label="Toggle navigation of aggregation" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/upgrad/">UPGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/aligned_mtl/">Aligned-MTL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/cagrad/">CAGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/config/">ConFIG</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/constant/">Constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/cr_mogm/">CR-MOGM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/dualproj/">DualProj</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/excess_mtl/">ExcessMTL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/fairgrad/">FairGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/graddrop/">GradDrop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/gradvac/">GradVac</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/imtl_g/">IMTL-G</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/krum/">Krum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/mean/">Mean</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/mgda/">MGDA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/modo/">MoDo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/nash_mtl/">Nash-MTL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/pcgrad/">PCGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/random/">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/sdmgrad/">SDMGrad</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/sum/">Sum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../aggregation/trimmed_mean/">Trimmed Mean</a></li>
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../">aggregation</a><input aria-label="Toggle navigation of aggregation" checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../upgrad/">UPGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aligned_mtl/">Aligned-MTL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cagrad/">CAGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../config/">ConFIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cr_mogm/">CR-MOGM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">ExcessMTL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fairgrad/">FairGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../graddrop/">GradDrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../imtl_g/">IMTL-G</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../krum/">Krum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mgda/">MGDA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../modo/">MoDo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../nash_mtl/">Nash-MTL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pcgrad/">PCGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdmgrad/">SDMGrad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current has-children"><a class="reference internal" href="../">scalarization</a><input aria-label="Toggle navigation of scalarization" checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cosmos/">COSMOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dwa/">DWA</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../famo/">FAMO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../geometric_mean/">GeometricMean</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../imtl_l/">IMTL-L</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../mean/">Mean</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">PBI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../stch/">STCH</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../uw/">UW</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/constant/">Constant</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/cosmos/">COSMOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/dwa/">DWA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/famo/">FAMO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/geometric_mean/">GeometricMean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/imtl_l/">IMTL-L</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/mean/">Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/pbi/">PBI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/random/">Random</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/stch/">STCH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/sum/">Sum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../scalarization/uw/">UW</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../linalg/">linalg</a><input aria-label="Toggle navigation of linalg" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -300,7 +300,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/scalarization/pbi.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/aggregation/excess_mtl.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -318,64 +318,113 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="pbi">
-<h1>PBI<a class="headerlink" href="#pbi" title="Link to this heading">¶</a></h1>
+          <section id="excessmtl">
+<h1>ExcessMTL<a class="headerlink" href="#excessmtl" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.scalarization.PBI">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">PBI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_pbi.py#L9-L94"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.PBI" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> that combines the input tensor of values using the
-Penalty-based Boundary Intersection (PBI) scalarization, proposed in <a class="reference external" href="https://ieeexplore.ieee.org/document/4358754">MOEA/D: A Multiobjective
-Evolutionary Algorithm Based on Decomposition</a>.</p>
-<p>It decomposes the values, relative to a reference point, into a component along a preference
-direction and a component perpendicular to it, and penalizes the latter:</p>
-<div class="math-wrapper docutils container">
-<div class="math notranslate nohighlight">
-\[d_1 = (L - z^*)^\top \hat w, \qquad
-d_2 = \lVert (L - z^*) - d_1 \hat w \rVert, \qquad
-d_1 + \theta\, d_2,\]</div>
-</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(L_i\)</span> is the <span class="math notranslate nohighlight">\(i\)</span>-th input value (the <span class="math notranslate nohighlight">\(i\)</span>-th objective);</p></li>
-<li><p><span class="math notranslate nohighlight">\(z^*\)</span> is the reference (ideal) point (the <code class="docutils literal notranslate"><span class="pre">reference</span></code> parameter);</p></li>
-<li><p><span class="math notranslate nohighlight">\(\hat w = w / \lVert w \rVert\)</span> is the normalized preference direction (the <code class="docutils literal notranslate"><span class="pre">weights</span></code>
-parameter);</p></li>
-<li><p><span class="math notranslate nohighlight">\(d_1\)</span> is the distance along the preference direction and <span class="math notranslate nohighlight">\(d_2\)</span> is the distance to
-it;</p></li>
-<li><p><span class="math notranslate nohighlight">\(\theta\)</span> is the penalty coefficient applied to <span class="math notranslate nohighlight">\(d_2\)</span> (the <code class="docutils literal notranslate"><span class="pre">theta</span></code> parameter).</p></li>
-</ul>
+<dt class="sig sig-object py" id="torchjd.aggregation.ExcessMTL">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">ExcessMTL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robust_step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_warmup_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_excess_mtl.py#L161-L217"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ExcessMTL" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.aggregation.WeightedAggregator" title="torchjd.aggregation.WeightedAggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeightedAggregator</span></code></a> from <a class="reference external" href="https://proceedings.mlr.press/v235/he24n.html">Robust Multi-Task Learning with Excess
+Risks</a> (ICML 2024).</p>
+<p>At each call, task weights are updated via an exponentiated gradient step (Equation 9) driven
+by per-task excess risk estimates. See <a class="reference internal" href="#torchjd.aggregation.ExcessMTLWeighting" title="torchjd.aggregation.ExcessMTLWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">ExcessMTLWeighting</span></code></a> for
+details on the algorithm and state management.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>theta</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The penalty coefficient <span class="math notranslate nohighlight">\(\theta\)</span> applied to the perpendicular distance. Must
-be non-negative. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> reduces PBI to the projection onto the preference
-direction. The paper uses <code class="docutils literal notranslate"><span class="pre">5</span></code> in its experiments; there is no single best value, and the
-paper notes that a too large or too small value worsens the result.</p></li>
-<li><p><strong>weights</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The preference vector <span class="math notranslate nohighlight">\(w\)</span>, giving the direction along which the values are
-decomposed. Its values should be non-negative. It must have the same shape as the values
-passed at call time. To approximate the whole Pareto front rather than a single trade-off, it
-should be re-sampled from a Dirichlet distribution and reassigned before every call, e.g. for
-<code class="docutils literal notranslate"><span class="pre">m</span></code> objectives <code class="docutils literal notranslate"><span class="pre">pbi.weights</span> <span class="pre">=</span> <span class="pre">torch.distributions.Dirichlet(torch.ones(m)).sample()</span></code>.</p></li>
-<li><p><strong>reference</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The reference (ideal) point <span class="math notranslate nohighlight">\(z^*\)</span> subtracted from the values. It should
-be a lower bound on the values. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the origin is used, which assumes non-negative
-values. If provided, it must have the same shape as the values passed at call time.</p></li>
+<li><p><strong>robust_step_size</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Step size <span class="math notranslate nohighlight">\(\eta_\alpha\)</span> for the exponentiated weight update.
+Must be positive.</p></li>
+<li><p><strong>n_warmup_steps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of forward calls during which weights stay uniform
+(<span class="math notranslate nohighlight">\([1/m, \ldots, 1/m]\)</span>) and gradient statistics are collected. The baseline excess
+risk is then set to the average excess risk observed during warmup. When <code class="docutils literal notranslate"><span class="pre">0</span></code> (default),
+the first call’s excess risk is used immediately as the baseline, matching the behavior of
+the official implementation and LibMTL. The paper (Appendix C.1) recommends collecting
+statistics for 3 full epochs, i.e. <code class="docutils literal notranslate"><span class="pre">n_warmup_steps</span> <span class="pre">=</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">len(dataloader)</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><span class="math notranslate nohighlight">\(d_2\)</span> is a Euclidean norm, whose gradient is undefined when the values lie exactly on
-the preference direction (<span class="math notranslate nohighlight">\(d_2 = 0\)</span>). To keep the gradient finite there, a small
-constant is added under the square root; this shifts the result by at most around
-<span class="math notranslate nohighlight">\(10^{-6}\)</span> at that point and is negligible elsewhere.</p>
-</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="torchjd.scalarization.PBI.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.PBI.__call__" title="Link to this definition">¶</a></dt>
-<dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.ExcessMTL.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ExcessMTL.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>values</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The tensor of values to scalarize. May be of any shape.</p>
+<dd class="field-odd"><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The Jacobian to aggregate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.ExcessMTL.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_excess_mtl.py#L206-L210"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ExcessMTL.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears all state so the next forward starts from uniform weights and re-enters
+warmup.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="torchjd.aggregation.ExcessMTLWeighting">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">ExcessMTLWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">robust_step_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_warmup_steps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_excess_mtl.py#L18-L158"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ExcessMTLWeighting" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/matrix/#torchjd.linalg.Matrix" title="torchjd.linalg.Matrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">Matrix</span></code></a>] from <a class="reference external" href="https://proceedings.mlr.press/v235/he24n.html">Robust
+Multi-Task Learning with Excess Risks</a> (ICML 2024).</p>
+<p>At each call, task weights are updated via an exponentiated gradient step (Equation 9) driven
+by per-task excess risk estimates. The excess risk for task <span class="math notranslate nohighlight">\(i\)</span> is approximated via a
+second-order Taylor expansion (Equations 6-7).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>robust_step_size</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – Step size <span class="math notranslate nohighlight">\(\eta_\alpha\)</span> for the exponentiated weight update.
+Must be positive.</p></li>
+<li><p><strong>n_warmup_steps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – Number of forward calls during which weights stay uniform
+(<span class="math notranslate nohighlight">\([1/m, \ldots, 1/m]\)</span>) and gradient statistics are collected. The baseline excess
+risk is then set to the average excess risk observed during warmup. When <code class="docutils literal notranslate"><span class="pre">0</span></code> (default),
+the first call’s excess risk is used immediately as the baseline, matching the behavior of
+the official implementation and LibMTL. The paper (Appendix C.1) recommends collecting
+statistics for 3 full epochs, i.e. <code class="docutils literal notranslate"><span class="pre">n_warmup_steps</span> <span class="pre">=</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">len(dataloader)</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The state tensor <span class="math notranslate nohighlight">\(S \in \mathbb{R}^{m \times n}\)</span> accumulates squared gradients
+across calls, where <span class="math notranslate nohighlight">\(n\)</span> is the total number of model parameters. For large
+models this can be a significant memory cost. Call <a class="reference internal" href="#torchjd.aggregation.ExcessMTLWeighting.reset" title="torchjd.aggregation.ExcessMTLWeighting.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> between experiments.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The weight update is adapted from the <a class="reference external" href="https://github.com/uiuctml/ExcessMTL">official implementation</a> and <a class="reference external" href="https://github.com/median-research-group/LibMTL/blob/main/LibMTL/weighting/ExcessMTL.py">LibMTL</a>.
+Unlike those implementations, which initialize task weights to <code class="docutils literal notranslate"><span class="pre">1</span></code>, we follow the paper
+and initialize them to <code class="docutils literal notranslate"><span class="pre">1/m</span></code> so that they always lie on the probability simplex.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.ExcessMTLWeighting.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_excess_mtl.py#L130-L139"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ExcessMTLWeighting.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears all state so the next forward starts from uniform weights and re-enters
+warmup.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.ExcessMTLWeighting.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_weighting_bases.py#L61-L67"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.ExcessMTLWeighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the vector of weights from the input matrix and applies all registered hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The matrix from which the weights must be extracted.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
@@ -392,23 +441,23 @@ constant is added under the square root; this shifts the result by at most aroun
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../random/">
+          <a class="next-page" href="../fairgrad/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Random</div>
+                <div class="title">FairGrad</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../mean/">
+          <a class="prev-page" href="../dualproj/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Mean</div>
+                <div class="title">DualProj</div>
                 
               </div>
             </a>

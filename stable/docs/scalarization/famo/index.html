@@ -242,6 +242,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/dualproj/">DualProj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../aggregation/excess_mtl/">ExcessMTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/fairgrad/">FairGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../aggregation/gradvac/">GradVac</a></li>
@@ -321,7 +322,7 @@
 <h1>FAMO<a class="headerlink" href="#famo" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.scalarization.FAMO">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">FAMO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_losses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_famo.py#L17-L195"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">FAMO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_losses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_famo.py#L17-L195"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
 <a class="reference internal" href="../#torchjd.scalarization.Scalarizer" title="torchjd.scalarization.Scalarizer"><code class="xref py py-class docutils literal notranslate"><span class="pre">Scalarizer</span></code></a> that combines the input tensor of values using Fast
 Adaptive Multitask Optimization (FAMO), proposed in <a class="reference external" href="https://proceedings.neurips.cc/paper_files/paper/2023/file/b2fe1ee8d936ac08dd26f2ff58986c8f-Paper-Conference.pdf">FAMO: Fast Adaptive Multitask Optimization</a>.</p>
@@ -410,7 +411,7 @@ is not enforced.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.FAMO.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_famo.py#L148-L176"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.update" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_famo.py#L148-L176"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.update" title="Link to this definition">¶</a></dt>
 <dd><p>Updates the task-weighting logits from the change in losses across the model update, by
 taking one step of the internal <code class="docutils literal notranslate"><span class="pre">Adam</span></code>. Must be called after the scalarizer has been
 called on the batch’s losses, with the losses recomputed on the same batch after the model
@@ -424,7 +425,7 @@ step.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.FAMO.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_famo.py#L178-L182"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.reset" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_famo.py#L178-L182"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.reset" title="Link to this definition">¶</a></dt>
 <dd><p>Resets the internal state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -435,7 +436,7 @@ step.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.FAMO.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.FAMO.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -500,7 +501,7 @@ step.</p>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=a21995ae"></script>
+</div><script src="../../../_static/documentation_options.js?v=3d5b0134"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

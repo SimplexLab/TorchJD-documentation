@@ -242,6 +242,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dualproj/">DualProj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../excess_mtl/">ExcessMTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../fairgrad/">FairGrad</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../gradvac/">GradVac</a></li>
@@ -321,7 +322,7 @@
 <h1>GradDrop<a class="headerlink" href="#graddrop" title="Link to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.aggregation.GradDrop">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">_identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/aggregation/_graddrop.py#L17-L83"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">GradDrop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">&lt;function</span> <span class="pre">_identity&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leak</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_graddrop.py#L17-L83"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop" title="Link to this definition">¶</a></dt>
 <dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> that applies the gradient combination
 steps from GradDrop, as defined in lines 10 to 15 of Algorithm 1 of <a class="reference external" href="https://arxiv.org/pdf/2010.06808.pdf">Just Pick a Sign:
 Optimizing Deep Multitask Models with Gradient Sign Dropout</a>.</p>
@@ -337,7 +338,7 @@ through. Defaults to None, which means no leak.</p></li>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.aggregation.GradDrop.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.GradDrop.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -402,7 +403,7 @@ through. Defaults to None, which means no leak.</p></li>
       
     </aside>
   </div>
-</div><script src="../../../_static/documentation_options.js?v=a21995ae"></script>
+</div><script src="../../../_static/documentation_options.js?v=3d5b0134"></script>
     <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>

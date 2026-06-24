@@ -242,6 +242,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/constant/">Constant</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/cr_mogm/">CR-MOGM</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/dualproj/">DualProj</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregation/excess_mtl/">ExcessMTL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/fairgrad/">FairGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/graddrop/">GradDrop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/gradvac/">GradVac</a></li>
@@ -341,12 +342,12 @@ losses into a single scalar loss.</p>
 <h2>Abstract base class<a class="headerlink" href="#abstract-base-class" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="torchjd.scalarization.Scalarizer">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">Scalarizer</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_scalarizer_base.py#L6-L31"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Scalarizer" title="Link to this definition">¶</a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.scalarization.</span></span><span class="sig-name descname"><span class="pre">Scalarizer</span></span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_scalarizer_base.py#L6-L31"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Scalarizer" title="Link to this definition">¶</a></dt>
 <dd><p>Abstract base class for all scalarizers. Reduces a tensor of values of any shape into a single
 scalar value.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="torchjd.scalarization.Scalarizer.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.16.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Scalarizer.__call__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/v0.17.0/src/torchjd/scalarization/_scalarizer_base.py#L19-L25"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.scalarization.Scalarizer.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -439,7 +440,7 @@ scalar value.</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=a21995ae"></script>
+</div><script src="../../_static/documentation_options.js?v=3d5b0134"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
