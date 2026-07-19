@@ -377,7 +377,7 @@ this Gramian to reweight the gradients and resolve conflict entirely.</p>
 The autogram engine flattens this into a vector of <code class="docutils literal notranslate"><span class="pre">m</span> <span class="pre">=</span> <span class="pre">16</span> <span class="pre">×</span> <span class="pre">2</span> <span class="pre">=</span> <span class="pre">32</span></code> objectives, so the
 Gramian has shape <code class="docutils literal notranslate"><span class="pre">[32,</span> <span class="pre">32]</span></code>. A standard <a class="reference internal" href="../../docs/aggregation/#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> is then used
 to extract a vector of 32 weights, which is reshaped back to <code class="docutils literal notranslate"><span class="pre">[16,</span> <span class="pre">2]</span></code> before being passed to
-<a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.Tensor.backward.html#torch.Tensor.backward" title="(in PyTorch v2.12)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">backward()</span></code></a>.</p>
+<a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.Tensor.backward.html#torch.Tensor.backward" title="(in PyTorch v2.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">backward()</span></code></a>.</p>
 </div>
 </section>
 
