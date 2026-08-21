@@ -363,7 +363,7 @@ implementation when <code class="docutils literal notranslate"><span class="pre"
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
-<span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">"none"</span><span class="p">)</span>
 <span class="n">weighting</span> <span class="o">=</span> <span class="n">MoDoWeighting</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 <span class="n">params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
 
@@ -384,7 +384,7 @@ implementation when <code class="docutils literal notranslate"><span class="pre"
     <span class="n">G</span> <span class="o">=</span> <span class="n">J_1</span> <span class="o">@</span> <span class="n">J_2</span><span class="o">.</span><span class="n">T</span>
     <span class="n">weights</span> <span class="o">=</span> <span class="n">weighting</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 
-    <span class="c1"># Equation 2.9b: the parameter update uses the mean of both batches&#39; losses.</span>
+    <span class="c1"># Equation 2.9b: the parameter update uses the mean of both batches' losses.</span>
     <span class="n">losses</span> <span class="o">=</span> <span class="p">(</span><span class="n">losses_1</span> <span class="o">+</span> <span class="n">losses_2</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span>
     <span class="n">losses</span><span class="o">.</span><span class="n">backward</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
     <span class="n">optimizer</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
@@ -410,7 +410,7 @@ the behavior of LibMTL and of the official implementation when <code class="docu
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
-<span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">"none"</span><span class="p">)</span>
 <span class="n">weighting</span> <span class="o">=</span> <span class="n">MoDoWeighting</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">rho</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 <span class="n">params</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
 

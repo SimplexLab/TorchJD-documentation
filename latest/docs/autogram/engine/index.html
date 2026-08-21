@@ -368,7 +368,7 @@ the batch dimension of the output tensor, if any.</p></li>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">ReLU</span><span class="p">(),</span> <span class="n">Linear</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
 
-<span class="hll"><span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>  <span class="c1"># Important to use reduction=&quot;none&quot;</span>
+<span class="hll"><span class="n">criterion</span> <span class="o">=</span> <span class="n">MSELoss</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">"none"</span><span class="p">)</span>  <span class="c1"># Important to use reduction="none"</span>
 </span><span class="hll"><span class="n">weighting</span> <span class="o">=</span> <span class="n">UPGradWeighting</span><span class="p">()</span>
 </span>
 <span class="hll"><span class="c1"># Create the engine before the backward pass, and only once.</span>
@@ -433,7 +433,7 @@ modules’ parameters themselves. For instance, the following model is not suppo
         <span class="bp">self</span><span class="o">.</span><span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>  <span class="c1"># Child module</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-        <span class="c1"># Incorrect: Use the child module&#39;s parameters directly without calling it.</span>
+        <span class="c1"># Incorrect: Use the child module's parameters directly without calling it.</span>
         <span class="k">return</span> <span class="nb">input</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">bias</span>
         <span class="c1"># Correct alternative: return self.linear(input)</span>
 </pre></div>
