@@ -351,12 +351,12 @@ it;</p></li>
 be non-negative. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> reduces PBI to the projection onto the preference
 direction. The paper uses <code class="docutils literal notranslate"><span class="pre">5</span></code> in its experiments; there is no single best value, and the
 paper notes that a too large or too small value worsens the result.</p></li>
-<li><p><strong>weights</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The preference vector <span class="math notranslate nohighlight">\(w\)</span>, giving the direction along which the values are
+<li><p><strong>weights</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The preference vector <span class="math notranslate nohighlight">\(w\)</span>, giving the direction along which the values are
 decomposed. Its values should be non-negative. It must have the same shape as the values
 passed at call time. To approximate the whole Pareto front rather than a single trade-off, it
 should be re-sampled from a Dirichlet distribution and reassigned before every call, e.g. for
 <code class="docutils literal notranslate"><span class="pre">m</span></code> objectives <code class="docutils literal notranslate"><span class="pre">pbi.weights</span> <span class="pre">=</span> <span class="pre">torch.distributions.Dirichlet(torch.ones(m)).sample()</span></code>.</p></li>
-<li><p><strong>reference</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The reference (ideal) point <span class="math notranslate nohighlight">\(z^*\)</span> subtracted from the values. It should
+<li><p><strong>reference</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span>) – The reference (ideal) point <span class="math notranslate nohighlight">\(z^*\)</span> subtracted from the values. It should
 be a lower bound on the values. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the origin is used, which assumes non-negative
 values. If provided, it must have the same shape as the values passed at call time.</p></li>
 </ul>
@@ -375,10 +375,10 @@ constant is added under the square root; this shifts the result by at most aroun
 <dd><p>Computes the scalar value from the input tensor of values and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>values</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The tensor of values to scalarize. May be of any shape.</p>
+<dd class="field-odd"><p><strong>values</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The tensor of values to scalarize. May be of any shape.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
 </dd>
 </dl>
 </dd></dl>
