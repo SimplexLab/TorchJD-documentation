@@ -410,8 +410,8 @@ be called twice, the side effects could be different from what’s expected).</p
 trainable parameters. For this reason,
 <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Transformer.html">Transformers</a>, which use a
 dropout function (rather than a <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html">Dropout</a> layer) in a
-module with some trainable parameters, has to be used with
-<code class="docutils literal notranslate"><span class="pre">dropout=0.0</span></code>. Note that a <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html">Dropout</a> layers are
+module with some trainable parameters, have to be used with
+<code class="docutils literal notranslate"><span class="pre">dropout=0.0</span></code>. Note that <a class="reference external" href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Dropout.html">Dropout</a> layers are
 entirely supported and should be preferred. It is also perfectly fine for random modules
 to have child modules that have trainable parameters, so if you have a random module with
 some direct parameters, a simple fix is to wrap these parameters into a child module.</p></li>
