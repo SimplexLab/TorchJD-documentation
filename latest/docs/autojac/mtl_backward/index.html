@@ -380,8 +380,8 @@ respect to those parameters will be accumulated into their <code class="docutils
 <p>To differentiate in parallel, <code class="docutils literal notranslate"><span class="pre">mtl_backward</span></code> relies on <code class="docutils literal notranslate"><span class="pre">torch.vmap</span></code>, which has some
 limitations: <a class="reference external" href="https://github.com/pytorch/pytorch/issues/138422">it does not work on the output of compiled functions</a>, <a class="reference external" href="https://github.com/SimplexLab/TorchJD/issues/184">when some tensors have</a> <code class="docutils literal notranslate"><span class="pre">retains_grad=True</span></code> or <a class="reference external" href="https://github.com/SimplexLab/TorchJD/issues/220">when using an
 RNN on CUDA</a>, for instance. If you
-experience issues with <code class="docutils literal notranslate"><span class="pre">backward</span></code> try to use <code class="docutils literal notranslate"><span class="pre">parallel_chunk_size=1</span></code> to avoid relying on
-<code class="docutils literal notranslate"><span class="pre">torch.vmap</span></code>.</p>
+experience issues with <code class="docutils literal notranslate"><span class="pre">mtl_backward</span></code> try to use <code class="docutils literal notranslate"><span class="pre">parallel_chunk_size=1</span></code> to avoid
+relying on <code class="docutils literal notranslate"><span class="pre">torch.vmap</span></code>.</p>
 </div>
 </dd></dl>
 
