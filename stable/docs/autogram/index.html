@@ -252,6 +252,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/mgda/">MGDA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/modo/">MoDo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/nash_mtl/">Nash-MTL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../aggregation/pcd/">PCD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/pcgrad/">PCGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../aggregation/sdmgrad/">SDMGrad</a></li>
@@ -324,11 +325,11 @@
 tensor of outputs (generally losses) with respect to some modules’ parameters. This Gramian contains
 all the inner products between pairs of gradients, and is thus a sufficient statistic for most
 weighting methods. The algorithm is formally defined in Section 6 of <a class="reference external" href="https://arxiv.org/pdf/2406.16232">Jacobian Descent For
-Multi-Objective Optimization</a>).</p>
+Multi-Objective Optimization</a>.</p>
 <p>Due to computing the Gramian iteratively over the layers, without ever having to store the full
 Jacobian in memory, this method is much more memory-efficient than
 <a class="reference internal" href="../autojac/"><span class="doc">autojac</span></a>, which makes it often much faster. Note that we’re still working
-on making autogram faster and more memory-efficient, and it’s interface may change in future
+on making autogram faster and more memory-efficient, and its interface may change in future
 releases.</p>
 <p>The list of Weightings compatible with <code class="docutils literal notranslate"><span class="pre">autogram</span></code> is:</p>
 <ul class="simple">
@@ -336,7 +337,10 @@ releases.</p>
 <li><p><a class="reference internal" href="../aggregation/aligned_mtl/#torchjd.aggregation.AlignedMTLWeighting" title="torchjd.aggregation.AlignedMTLWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">AlignedMTLWeighting</span></code></a></p></li>
 <li><p><a class="reference internal" href="../aggregation/cagrad/#torchjd.aggregation.CAGradWeighting" title="torchjd.aggregation.CAGradWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">CAGradWeighting</span></code></a></p></li>
 <li><p><a class="reference internal" href="../aggregation/constant/#torchjd.aggregation.ConstantWeighting" title="torchjd.aggregation.ConstantWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstantWeighting</span></code></a></p></li>
+<li><p><a class="reference internal" href="../aggregation/cr_mogm/#torchjd.aggregation.CRMOGMWeighting" title="torchjd.aggregation.CRMOGMWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">CRMOGMWeighting</span></code></a> (when wrapping another weighting from this list)</p></li>
 <li><p><a class="reference internal" href="../aggregation/dualproj/#torchjd.aggregation.DualProjWeighting" title="torchjd.aggregation.DualProjWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">DualProjWeighting</span></code></a></p></li>
+<li><p><a class="reference internal" href="../aggregation/fairgrad/#torchjd.aggregation.FairGradWeighting" title="torchjd.aggregation.FairGradWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">FairGradWeighting</span></code></a></p></li>
+<li><p><a class="reference internal" href="../aggregation/gradvac/#torchjd.aggregation.GradVacWeighting" title="torchjd.aggregation.GradVacWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">GradVacWeighting</span></code></a></p></li>
 <li><p><a class="reference internal" href="../aggregation/imtl_g/#torchjd.aggregation.IMTLGWeighting" title="torchjd.aggregation.IMTLGWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">IMTLGWeighting</span></code></a></p></li>
 <li><p><a class="reference internal" href="../aggregation/krum/#torchjd.aggregation.KrumWeighting" title="torchjd.aggregation.KrumWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">KrumWeighting</span></code></a></p></li>
 <li><p><a class="reference internal" href="../aggregation/mean/#torchjd.aggregation.MeanWeighting" title="torchjd.aggregation.MeanWeighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">MeanWeighting</span></code></a></p></li>
@@ -398,7 +402,7 @@ releases.</p>
       
     </aside>
   </div>
-</div><script src="../../_static/documentation_options.js?v=2f9d3d2e"></script>
+</div><script src="../../_static/documentation_options.js?v=76465326"></script>
     <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
