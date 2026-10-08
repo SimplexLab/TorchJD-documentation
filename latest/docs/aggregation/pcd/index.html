@@ -4,12 +4,12 @@
   <head><meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="scalarization" href="../../scalarization/"><link rel="prev" title="Sum" href="../sum/">
+<link rel="index" title="Index" href="../../../genindex/"><link rel="search" title="Search" href="../../../search/"><link rel="next" title="PCGrad" href="../pcgrad/"><link rel="prev" title="Nash-MTL" href="../nash_mtl/">
         <link rel="prefetch" href="../../../_static/logo-light-mode.png" as="image">
         <link rel="prefetch" href="../../../_static/logo-dark-mode.png" as="image">
 
     <link rel="shortcut icon" href="../../../_static/favicon.ico"><!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
-        <title>Trimmed Mean - TorchJD</title>
+        <title>PCD - TorchJD</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
@@ -42,7 +42,7 @@
     }
   }
 </style>
-    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/trimmed_mean.html">
+    <link rel="canonical" href="https://torchjd.org/stable/docs/aggregation/pcd.html">
     <script src="/version-selector.js"></script>
     <link rel="stylesheet" href="/version-selector.css">
 </head>
@@ -252,12 +252,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../mgda/">MGDA</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../modo/">MoDo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nash_mtl/">Nash-MTL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pcd/">PCD</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">PCD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pcgrad/">PCGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../random/">Random</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sdmgrad/">SDMGrad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sum/">Sum</a></li>
-<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Trimmed Mean</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trimmed_mean/">Trimmed Mean</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../scalarization/">scalarization</a><input aria-label="Toggle navigation of scalarization" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
@@ -301,7 +301,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="../../../_sources/docs/aggregation/trimmed_mean.rst.txt" title="View this page">
+  <a class="muted-link" href="../../../_sources/docs/aggregation/pcd.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -319,27 +319,149 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="trimmed-mean">
-<h1>Trimmed Mean<a class="headerlink" href="#trimmed-mean" title="Link to this heading">¶</a></h1>
+          <section id="pcd">
+<h1>PCD<a class="headerlink" href="#pcd" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="torchjd.aggregation.TrimmedMean">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">TrimmedMean</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trim_number</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_trimmed_mean.py#L7-L57"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.TrimmedMean" title="Link to this definition">¶</a></dt>
-<dd><p><a class="reference internal" href="../#torchjd.aggregation.Aggregator" title="torchjd.aggregation.Aggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">Aggregator</span></code></a> for adversarial federated learning,
-that trims the most extreme values of the input matrix, before averaging its rows, as defined in
-<a class="reference external" href="https://proceedings.mlr.press/v80/yin18a/yin18a.pdf">Byzantine-Robust Distributed Learning: Towards Optimal Statistical Rates</a>.</p>
+<dt class="sig sig-object py" id="torchjd.aggregation.PCD">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">PCD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.999</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_pcd.py#L173-L272"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.PCD" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.aggregation.GramianWeightedAggregator" title="torchjd.aggregation.GramianWeightedAggregator"><code class="xref py py-class docutils literal notranslate"><span class="pre">GramianWeightedAggregator</span></code></a> implementing Priority-Constrained
+Descent (PCD), from <a class="reference external" href="https://openreview.net/forum?id=HT01yGHLEt">Not All Objectives Are Born Equal: Priority-Constrained Descent for
+Hierarchical Multi-Objective Optimization</a> (TMLR
+2026, <a class="reference external" href="https://arxiv.org/abs/2606.29521">arXiv:2606.29521</a>).</p>
+<p>The first row <span class="math notranslate nohighlight">\(g_1\)</span> of the input matrix is the gradient of the primary objective, and the
+other rows <span class="math notranslate nohighlight">\(g_2, \dots, g_m\)</span> are the gradients of the secondary objectives. PCD follows the
+primary gradient as closely as possible, subject to each secondary objective receiving at least
+a fraction <span class="math notranslate nohighlight">\(\tau\)</span> of the first-order progress that a step along its own normalized
+gradient would give:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\tilde d = \mathop{\mathrm{arg\,min}}_{d} \ \frac{1}{2} \left\| d - \tilde g_1 \right\|^2
+\quad \text{subject to} \quad \tilde g_j^\top d \geq \tau \left\| \tilde g_j \right\|^2
+\quad \text{for } j = 2, \dots, m,\]</div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\tilde g_i = s_i g_i\)</span> is the normalized gradient of objective <span class="math notranslate nohighlight">\(i\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(s_i = 1 / \sqrt{\hat v_i + \epsilon}\)</span> is its scale,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\hat v_i\)</span> is the bias-corrected exponential moving average of <span class="math notranslate nohighlight">\(\|g_i\|^2\)</span> over
+the successive calls, with decay <span class="math notranslate nohighlight">\(\beta\)</span>.</p></li>
+</ul>
+<p>The output is <span class="math notranslate nohighlight">\(\tilde d\)</span> rescaled to the norm of <span class="math notranslate nohighlight">\(g_1\)</span>. Because of the
+normalization, <span class="math notranslate nohighlight">\(\tau\)</span> is a scale-free fraction: multiplying a secondary row of the input
+by the same positive constant at every call leaves the output unchanged, up to the effect of
+<span class="math notranslate nohighlight">\(\epsilon\)</span>.</p>
+<p>Special cases:</p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(g_1 = 0\)</span>, the output is zero.</p></li>
+<li><p>If the constraints cannot be satisfied simultaneously (which requires <span class="math notranslate nohighlight">\(m \geq 3\)</span>, e.g.
+two anti-parallel secondary gradients), they are dropped and the output is <span class="math notranslate nohighlight">\(g_1\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\tilde d = 0\)</span>, up to the rounding errors of the Gramian, the output is zero.</p></li>
+<li><p>If the input contains <code class="docutils literal notranslate"><span class="pre">nan</span></code> or <code class="docutils literal notranslate"><span class="pre">inf</span></code>, the output is <code class="docutils literal notranslate"><span class="pre">nan</span></code> and the moving average is left
+unchanged.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>trim_number</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a></span>) – The number of maximum and minimum values to remove from each column of the
-input matrix (note that <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">trim_number</span></code> values are removed from each column).</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tau</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The fraction <span class="math notranslate nohighlight">\(\tau \in [0, 1]\)</span> of normalized first-order progress guaranteed
+to each secondary objective. Either a float, shared by all secondary objectives, or a vector
+with one value per secondary objective (i.e. of length <span class="math notranslate nohighlight">\(m - 1\)</span>).</p></li>
+<li><p><strong>beta</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The decay <span class="math notranslate nohighlight">\(\beta \in [0, 1)\)</span> of the exponential moving average of the
+squared gradient norms.</p></li>
+<li><p><strong>eps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The non-negative constant <span class="math notranslate nohighlight">\(\epsilon\)</span> added to the moving average before
+taking its inverse square root.</p></li>
+</ul>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PCD is not symmetric in the objectives: the first row of the input matrix (e.g. the
+first loss given to <a class="reference internal" href="../../autojac/backward/#torchjd.autojac.backward" title="torchjd.autojac.backward"><code class="xref py py-func docutils literal notranslate"><span class="pre">backward()</span></code></a>) is the primary objective.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This aggregator is stateful: it keeps the moving average of the squared gradient norms
+across calls. Use <a class="reference internal" href="#torchjd.aggregation.PCD.reset" title="torchjd.aggregation.PCD.reset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">reset()</span></code></a> to clear it. It is also cleared automatically when the
+number of rows changes.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The reference implementation is available at
+<a class="reference external" href="https://github.com/DaraVaram/priority-constrained-descent">github.com/DaraVaram/priority-constrained-descent</a>.</p>
+</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="torchjd.aggregation.TrimmedMean.__call__">
-<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.TrimmedMean.__call__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="torchjd.aggregation.PCD.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">matrix</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_aggregator_bases.py#L32-L39"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.PCD.__call__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the aggregation from the input matrix and applies all registered hooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>matrix</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The Jacobian to aggregate.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.PCD.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_pcd.py#L266-L269"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.PCD.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the moving average of the squared gradient norms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="torchjd.aggregation.PCDWeighting">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">torchjd.aggregation.</span></span><span class="sig-name descname"><span class="pre">PCDWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tau</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.999</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_pcd.py#L18-L170"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.PCDWeighting" title="Link to this definition">¶</a></dt>
+<dd><p><a class="reference internal" href="../../stateful/#torchjd.Stateful" title="torchjd.Stateful"><code class="xref py py-class docutils literal notranslate"><span class="pre">Stateful</span></code></a>
+<a class="reference internal" href="../#torchjd.aggregation.Weighting" title="torchjd.aggregation.Weighting"><code class="xref py py-class docutils literal notranslate"><span class="pre">Weighting</span></code></a> [<a class="reference internal" href="../../linalg/psd_matrix/#torchjd.linalg.PSDMatrix" title="torchjd.linalg.PSDMatrix"><code class="xref py py-class docutils literal notranslate"><span class="pre">PSDMatrix</span></code></a>]
+giving the weights of <a class="reference internal" href="#torchjd.aggregation.PCD" title="torchjd.aggregation.PCD"><code class="xref py py-class docutils literal notranslate"><span class="pre">PCD</span></code></a>.</p>
+<p>The first row and column of the Gramian correspond to the primary objective.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tau</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The fraction <span class="math notranslate nohighlight">\(\tau \in [0, 1]\)</span> of normalized first-order progress guaranteed
+to each secondary objective. Either a float, shared by all secondary objectives, or a vector
+with one value per secondary objective (i.e. of length <span class="math notranslate nohighlight">\(m - 1\)</span>).</p></li>
+<li><p><strong>beta</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The decay <span class="math notranslate nohighlight">\(\beta \in [0, 1)\)</span> of the exponential moving average of the
+squared gradient norms.</p></li>
+<li><p><strong>eps</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></a></span>) – The non-negative constant <span class="math notranslate nohighlight">\(\epsilon\)</span> added to the moving average before
+taking its inverse square root.</p></li>
+</ul>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The quadratic program is solved exactly with the dual active-set method of <a class="reference external" href="https://doi.org/10.1007/BF02591962">Goldfarb and
+Idnani (1983)</a>, expressed in terms of the Gramian
+only. The reference implementation instead enumerates the working sets of constraints
+(Appendix B.2 of the paper). Both methods find the same minimizer, but the enumeration is
+exponential in <span class="math notranslate nohighlight">\(m\)</span>.</p>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.PCDWeighting.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_pcd.py#L90-L95"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.PCDWeighting.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Clears the moving average of the squared gradient norms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.14)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></a></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="torchjd.aggregation.PCDWeighting.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gramian</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span><a class="reference external" href="https://github.com/SimplexLab/TorchJD/blob/main/src/torchjd/aggregation/_weighting_bases.py#L71-L77"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#torchjd.aggregation.PCDWeighting.__call__" title="Link to this definition">¶</a></dt>
+<dd><p>Computes the vector of weights from the input Gramian and applies all registered hooks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gramian</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span>) – The Gramian from which the weights must be extracted.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference external" href="https://docs.pytorch.org/docs/stable/tensors.html#torch.Tensor" title="(in PyTorch v2.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Tensor</span></code></a></span></p>
@@ -356,23 +478,23 @@ input matrix (note that <code class="docutils literal notranslate"><span class="
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="../../scalarization/">
+          <a class="next-page" href="../pcgrad/">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">scalarization</div>
+                <div class="title">PCGrad</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="../sum/">
+          <a class="prev-page" href="../nash_mtl/">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Sum</div>
+                <div class="title">Nash-MTL</div>
                 
               </div>
             </a>
@@ -405,6 +527,7 @@ input matrix (note that <code class="docutils literal notranslate"><span class="
     <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script data-domain="torchjd.org" defer="defer" src="https://stats.torchjd.org/js/script.js"></script>
     </body>
 </html>
